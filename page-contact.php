@@ -8,6 +8,8 @@
   <meta name="description" content="Contact Great Wall Furnitures in Dubai for wholesale and retail inquiries.">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>window.themeUrl = '<?php echo get_template_directory_uri(); ?>';</script>
+<?php wp_head(); ?>
 </head>
 <body>
 
@@ -270,7 +272,9 @@
     </div>
   </footer>
 
+<?php wp_footer(); ?>
 </body>
 </html>
+
 
 
