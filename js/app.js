@@ -1127,15 +1127,21 @@ function renderFeaturedProducts(elementId) {
     container.addEventListener('touchstart', () => isHovered = true);
     container.addEventListener('touchend', () => isHovered = false);
 
-    setInterval(() => {
-      if (isHovered) return;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      if (container.scrollLeft >= maxScroll - 10) {
-        container.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: 312, behavior: 'smooth' });
+    let scrollSpeed = 0.8; // Smooth and slow continuous scroll
+    let animationId;
+
+    function autoScroll() {
+      if (!isHovered) {
+        container.scrollLeft += scrollSpeed;
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (container.scrollLeft >= maxScroll - 1) {
+          container.scrollLeft = 0; // Reset to start
+        }
       }
-    }, 4000);
+      animationId = requestAnimationFrame(autoScroll);
+    }
+    
+    animationId = requestAnimationFrame(autoScroll);
   }
 }
 
