@@ -226,14 +226,14 @@ const storeContent = {
     heroTitle: 'Command your workspace with unmatched comfort.',
     heroDesc: 'Equip your office with deeply comfortable, ergonomic, and highly functional furniture at unbeatable wholesale prices. Fast dispatch anywhere in Dubai.',
     logoText: 'Great Wall | Office',
-    icon: 'ðŸ¢'
+    icon: '<i class="fa-solid fa-building"></i>'
   },
   home: {
     heroSlides: [window.themeUrl + '/images/hero_home_setup.png', window.themeUrl + '/images/product_bunk_bed_1780572574007.png', window.themeUrl + '/images/hero_furniture_showcase.png'],
     heroTitle: 'Transform your living space with cozy elegance.',
     heroDesc: 'Furnish your home with beautifully designed, ultra-comfortable pieces at unbeatable wholesale prices. Fast dispatch anywhere in Dubai.',
     logoText: 'Great Wall | Home',
-    icon: 'ðŸ›‹ï¸'
+    icon: '<i class="fa-solid fa-couch"></i>'
   }
 };
 
