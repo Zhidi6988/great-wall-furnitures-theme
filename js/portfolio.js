@@ -2,6 +2,33 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Theme Toggle Logic
+const themeBtn = document.getElementById('theme-toggle-btn');
+const iconMoon = document.getElementById('theme-icon-moon');
+const iconSun = document.getElementById('theme-icon-sun');
+
+// Default to dark for portfolio, check localStorage
+const currentTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', currentTheme);
+if (currentTheme === 'light') {
+  iconSun.style.display = 'none';
+  iconMoon.style.display = 'block';
+}
+
+themeBtn.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+    iconSun.style.display = 'none';
+    iconMoon.style.display = 'block';
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    iconSun.style.display = 'block';
+    iconMoon.style.display = 'none';
+  }
+});
 const iframe = document.getElementById('api-frame');
 const uid = '0b5e16dd5a1a484dbd2cf5d04ce91547';
 
