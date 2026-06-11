@@ -31,7 +31,7 @@ client.init(uid, {
   autostart: 1,
   preload: 1,
   transparent: 1,
-  ui_theme: 'light',
+  ui_theme: 'dark',
   ui_infos: 0,
   ui_controls: 0, 
   ui_stop: 0,
