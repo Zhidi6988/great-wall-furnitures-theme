@@ -237,12 +237,182 @@ const mockProducts = [
     dimensions: { height: "165 cm", width: "98 cm", depth: "195 cm", weightLimit: "110 kg per bunk" },
     iconColor: "var(--color-accent)",
     image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/SK-2...jpg"
+  },
+  {
+    id: 15,
+    name: "LK-1 6-Leg Bed Frame",
+    category: "Beds",
+    price: 199,
+    originalPrice: 299,
+    badge: "Sturdy",
+    rating: 4.8,
+    stockCount: 150,
+    deliveryTime: "Next-Day",
+    description: "Features a reliable 6-leg support system for maximum stability.",
+    features: ["6-Leg Support", "Durable Frame", "Minimalist Look", "Easy Setup"],
+    comfortRatings: { support: 90, breathability: 100, adjustment: 20 },
+    dimensions: { height: "35 cm", width: "150 cm", depth: "200 cm", weightLimit: "250 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/LK-1（6腿-）.jpg"
+  },
+  {
+    id: 16,
+    name: "HK-1 Bed Frame",
+    category: "Beds",
+    price: 249,
+    originalPrice: 349,
+    badge: "Popular",
+    rating: 4.7,
+    stockCount: 120,
+    deliveryTime: "2-3 Days",
+    description: "A popular choice that seamlessly blends durability with a sleek profile.",
+    features: ["Sleek Profile", "High Quality Steel", "Quiet Joints", "Scratch Resistant"],
+    comfortRatings: { support: 85, breathability: 100, adjustment: 10 },
+    dimensions: { height: "30 cm", width: "140 cm", depth: "195 cm", weightLimit: "220 kg" },
+    iconColor: "var(--color-secondary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/HK-1（HK-3-拆）.jpg"
+  },
+  {
+    id: 17,
+    name: "GHF Standard Bed Frame",
+    category: "Beds",
+    price: 179,
+    originalPrice: 249,
+    badge: "Value Pack",
+    rating: 4.5,
+    stockCount: 200,
+    deliveryTime: "Next-Day",
+    description: "The standard in affordable, reliable bed frames for everyday use.",
+    features: ["Standard Layout", "Budget Friendly", "Reliable Support", "Fast Assembly"],
+    comfortRatings: { support: 80, breathability: 100, adjustment: 10 },
+    dimensions: { height: "35 cm", width: "140 cm", depth: "190 cm", weightLimit: "200 kg" },
+    iconColor: "var(--color-accent)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/GHF.jpg"
+  },
+  {
+    id: 18,
+    name: "HF Platform Bed",
+    category: "Beds",
+    price: 289,
+    originalPrice: 399,
+    badge: "Modern",
+    rating: 4.9,
+    stockCount: 85,
+    deliveryTime: "Next-Day",
+    description: "A sleek platform bed designed to offer excellent support without needing a box spring.",
+    features: ["Platform Design", "No Box Spring Needed", "Modern Look", "Sturdy Frame"],
+    comfortRatings: { support: 95, breathability: 100, adjustment: 10 },
+    dimensions: { height: "40 cm", width: "160 cm", depth: "200 cm", weightLimit: "280 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/HF.jpg"
+  },
+  {
+    id: 19,
+    name: "F-38 Metal Bed Frame",
+    category: "Beds",
+    price: 219,
+    originalPrice: 299,
+    badge: "Heavy Duty",
+    rating: 4.6,
+    stockCount: 160,
+    deliveryTime: "Next-Day",
+    description: "Constructed with heavy-duty metal for those who require ultimate frame strength.",
+    features: ["Heavy Duty Metal", "Industrial Style", "Reinforced Joints", "High Capacity"],
+    comfortRatings: { support: 90, breathability: 100, adjustment: 15 },
+    dimensions: { height: "35 cm", width: "150 cm", depth: "200 cm", weightLimit: "300 kg" },
+    iconColor: "var(--color-secondary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/F-38.jpg"
+  },
+  {
+    id: 20,
+    name: "SHD Sturdy Bed",
+    category: "Beds",
+    price: 349,
+    originalPrice: 499,
+    badge: "Premium",
+    rating: 4.8,
+    stockCount: 65,
+    deliveryTime: "2-3 Days",
+    description: "Our premium sturdy bed frame that delivers uncompromised support and aesthetic appeal.",
+    features: ["Premium Build", "Uncompromised Support", "Elegant Finish", "Long Lasting"],
+    comfortRatings: { support: 95, breathability: 100, adjustment: 25 },
+    dimensions: { height: "45 cm", width: "180 cm", depth: "200 cm", weightLimit: "350 kg" },
+    iconColor: "var(--color-accent)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/SHD-1-1-3.jpg"
+  },
+  {
+    id: 21,
+    name: "LK-3 Minimalist Bed",
+    category: "Beds",
+    price: 189,
+    originalPrice: 259,
+    badge: "Minimalist",
+    rating: 4.7,
+    stockCount: 190,
+    deliveryTime: "Next-Day",
+    description: "A minimalist bed frame that beautifully complements any modern, uncluttered bedroom.",
+    features: ["Clean Lines", "Minimalist Profile", "Easy to Move", "Quick Setup"],
+    comfortRatings: { support: 85, breathability: 100, adjustment: 10 },
+    dimensions: { height: "30 cm", width: "140 cm", depth: "190 cm", weightLimit: "200 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/LK-3.jpg"
+  },
+  {
+    id: 22,
+    name: "Classic Metal Frame",
+    category: "Beds",
+    price: 229,
+    originalPrice: 329,
+    badge: "Classic",
+    rating: 4.6,
+    stockCount: 140,
+    deliveryTime: "Next-Day",
+    description: "A classic metal frame with a timeless design that fits effortlessly into any room.",
+    features: ["Timeless Design", "Metal Construction", "Powder Coated", "Reliable"],
+    comfortRatings: { support: 85, breathability: 100, adjustment: 20 },
+    dimensions: { height: "35 cm", width: "150 cm", depth: "200 cm", weightLimit: "250 kg" },
+    iconColor: "var(--color-secondary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/02/resize-500x500-15.jpg"
+  },
+  {
+    id: 23,
+    name: "WB-3C Wood/Metal Bed",
+    category: "Beds",
+    price: 399,
+    originalPrice: 549,
+    badge: "Hybrid",
+    rating: 4.9,
+    stockCount: 80,
+    deliveryTime: "2-3 Days",
+    description: "A stunning hybrid bed that combines the warmth of wood with the durability of metal.",
+    features: ["Wood & Metal", "Stunning Contrast", "Hybrid Support", "Premium Finish"],
+    comfortRatings: { support: 90, breathability: 100, adjustment: 30 },
+    dimensions: { height: "40 cm", width: "160 cm", depth: "200 cm", weightLimit: "280 kg" },
+    iconColor: "var(--color-accent)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2019/12/WB-3C.jpg"
+  },
+  {
+    id: 24,
+    name: "WB-3A Premium Bed",
+    category: "Beds",
+    price: 459,
+    originalPrice: 649,
+    badge: "Top Rated",
+    rating: 4.9,
+    stockCount: 50,
+    deliveryTime: "2-3 Days",
+    description: "The pinnacle of our bed frame collection, offering luxurious design and rock-solid support.",
+    features: ["Luxurious Design", "Rock-Solid Build", "Elite Materials", "Master Craftsmanship"],
+    comfortRatings: { support: 98, breathability: 100, adjustment: 40 },
+    dimensions: { height: "45 cm", width: "180 cm", depth: "200 cm", weightLimit: "350 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2019/12/WB-3A.jpg"
   }
 ];
 
 // Automatically assign storeType based on category
 mockProducts.forEach(p => {
-  if (['Bunkbeds', 'Home', 'Lounge'].includes(p.category)) {
+  if (['Beds', 'Bunkbeds', 'Home', 'Lounge'].includes(p.category)) {
     p.storeType = 'home';
   } else {
     p.storeType = 'office';
@@ -810,8 +980,7 @@ function renderFeaturedProducts(elementId) {
 
   const featuredData = mockProducts
     .filter(p => p.storeType === currentStore)
-    .sort((a, b) => b.rating - a.rating)
-    .slice(0, 3);
+    .sort((a, b) => b.rating - a.rating);
 
   container.innerHTML = featuredData.map(product => {
     return `
