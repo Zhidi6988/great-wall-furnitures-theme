@@ -2479,7 +2479,8 @@ body {
   display: flex;
   gap: 32px;
   overflow-x: auto;
-  padding: 10px 0 20px 0;
+  padding: 20px 10px 40px 10px;
+  margin-bottom: -20px; /* Counteract bottom padding */
   scroll-behavior: auto; /* Allow JS smooth scroll */
 }
 
@@ -2494,6 +2495,9 @@ body {
   max-width: 280px;
   flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  background-color: hsl(var(--color-bg-card));
+  border-radius: var(--radius-md);
+  padding-bottom: 16px;
 }
 
 .slider-row .featured-item:hover {
