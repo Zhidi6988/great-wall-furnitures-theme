@@ -526,12 +526,182 @@ const mockProducts = [
     dimensions: { height: "220 cm", width: "95 cm", depth: "40 cm", weightLimit: "130 kg per shelf" },
     iconColor: "var(--color-primary)",
     image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TG-6.jpg"
+  },
+  {
+    id: 32,
+    name: "XG-3 Shoe Cabinet",
+    category: "Cabinets/Lockers",
+    price: 99,
+    originalPrice: 129,
+    badge: "Compact",
+    rating: 4.5,
+    stockCount: 150,
+    deliveryTime: "Next-Day",
+    description: "Compact and sturdy shoe cabinet to keep your entryway organized.",
+    features: ["Space Saving", "Ventilated Doors", "Easy Access", "Modern Design"],
+    comfortRatings: { support: 80, breathability: 90, adjustment: 20 },
+    dimensions: { height: "100 cm", width: "80 cm", depth: "35 cm", weightLimit: "40 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/XG-3-1.jpg"
+  },
+  {
+    id: 33,
+    name: "XG-5 5-Tier Cabinet",
+    category: "Cabinets/Lockers",
+    price: 139,
+    originalPrice: 189,
+    badge: "Popular",
+    rating: 4.7,
+    stockCount: 110,
+    deliveryTime: "2-3 Days",
+    description: "Versatile 5-tier cabinet with swinging doors for ample storage space.",
+    features: ["5 Storage Tiers", "Swinging Doors", "Durable Steel", "Smooth Finish"],
+    comfortRatings: { support: 85, breathability: 85, adjustment: 30 },
+    dimensions: { height: "160 cm", width: "85 cm", depth: "40 cm", weightLimit: "60 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/XG-5-开（新）.jpg"
+  },
+  {
+    id: 34,
+    name: "XG-6 6-Tier Storage",
+    category: "Cabinets/Lockers",
+    price: 169,
+    originalPrice: 219,
+    badge: "High Capacity",
+    rating: 4.8,
+    stockCount: 80,
+    deliveryTime: "Next-Day",
+    description: "Maximum storage capacity with a 6-tier internal shelving layout.",
+    features: ["6 Tiers", "High Capacity", "Secure Doors", "Sturdy Base"],
+    comfortRatings: { support: 90, breathability: 80, adjustment: 40 },
+    dimensions: { height: "190 cm", width: "90 cm", depth: "40 cm", weightLimit: "80 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/XG-6新.jpg"
+  },
+  {
+    id: 35,
+    name: "TGD-2 Glass Door Cabinet",
+    category: "Cabinets/Lockers",
+    price: 219,
+    originalPrice: 289,
+    badge: "Premium",
+    rating: 4.9,
+    stockCount: 45,
+    deliveryTime: "2-3 Days",
+    description: "Elegant steel cabinet featuring clear glass doors for displaying items safely.",
+    features: ["Glass Doors", "Secure Key Lock", "Adjustable Shelves", "Premium Finish"],
+    comfortRatings: { support: 95, breathability: 70, adjustment: 60 },
+    dimensions: { height: "185 cm", width: "90 cm", depth: "40 cm", weightLimit: "100 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TGD-2-开.jpg"
+  },
+  {
+    id: 36,
+    name: "TG-1A Single Door Cabinet",
+    category: "Cabinets/Lockers",
+    price: 119,
+    originalPrice: 159,
+    badge: "Slim Design",
+    rating: 4.4,
+    stockCount: 130,
+    deliveryTime: "Next-Day",
+    description: "A slim, single-door vertical cabinet ideal for tight spaces and narrow corridors.",
+    features: ["Slim Profile", "Single Door", "Multiple Shelves", "Lockable"],
+    comfortRatings: { support: 80, breathability: 80, adjustment: 50 },
+    dimensions: { height: "185 cm", width: "45 cm", depth: "40 cm", weightLimit: "50 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TG-1A-开.jpg"
+  },
+  {
+    id: 37,
+    name: "TG-1B Standard Cabinet",
+    category: "Cabinets/Lockers",
+    price: 149,
+    originalPrice: 199,
+    badge: "Best Value",
+    rating: 4.6,
+    stockCount: 95,
+    deliveryTime: "Next-Day",
+    description: "Standard width steel cabinet offering versatile enclosed storage.",
+    features: ["Standard Width", "Double Doors", "Heavy Duty", "Secure Lock"],
+    comfortRatings: { support: 85, breathability: 85, adjustment: 50 },
+    dimensions: { height: "185 cm", width: "90 cm", depth: "40 cm", weightLimit: "100 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TG-1B.jpg"
+  },
+  {
+    id: 38,
+    name: "TG-4 Four Door Cabinet",
+    category: "Cabinets/Lockers",
+    price: 189,
+    originalPrice: 249,
+    badge: "Multi-Compartment",
+    rating: 4.7,
+    stockCount: 70,
+    deliveryTime: "2-3 Days",
+    description: "Features four separate compartments, perfect for shared spaces or categorized storage.",
+    features: ["Four Compartments", "Individual Locks", "Ventilation Slits", "Durable Frame"],
+    comfortRatings: { support: 90, breathability: 95, adjustment: 0 },
+    dimensions: { height: "185 cm", width: "90 cm", depth: "40 cm", weightLimit: "120 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TG-4-开.jpg"
+  },
+  {
+    id: 39,
+    name: "TGD-5 Mixed Cabinet",
+    category: "Cabinets/Lockers",
+    price: 239,
+    originalPrice: 319,
+    badge: "Versatile",
+    rating: 4.8,
+    stockCount: 40,
+    deliveryTime: "Next-Day",
+    description: "Combines glass display doors on top with secure solid doors on the bottom.",
+    features: ["Glass Upper Doors", "Solid Lower Doors", "Maximum Versatility", "Dual Locks"],
+    comfortRatings: { support: 95, breathability: 75, adjustment: 60 },
+    dimensions: { height: "185 cm", width: "90 cm", depth: "40 cm", weightLimit: "100 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TGD-5-1.jpg"
+  },
+  {
+    id: 40,
+    name: "AA03 Personal Locker",
+    category: "Cabinets/Lockers",
+    price: 89,
+    originalPrice: 119,
+    badge: "Compact",
+    rating: 4.3,
+    stockCount: 250,
+    deliveryTime: "Next-Day",
+    description: "Compact personal locker ideal for securely storing personal belongings.",
+    features: ["Compact Design", "Ventilated", "Padlock Ready", "Stackable"],
+    comfortRatings: { support: 75, breathability: 90, adjustment: 0 },
+    dimensions: { height: "90 cm", width: "40 cm", depth: "45 cm", weightLimit: "30 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/AA03.jpg"
+  },
+  {
+    id: 41,
+    name: "HF-4 Utility Locker",
+    category: "Cabinets/Lockers",
+    price: 199,
+    originalPrice: 269,
+    badge: "Heavy Duty",
+    rating: 4.6,
+    stockCount: 85,
+    deliveryTime: "2-3 Days",
+    description: "Heavy-duty 4-door utility locker for industrial or high-traffic environments.",
+    features: ["Heavy Duty Steel", "Four Lockers", "Reinforced Doors", "Nameplate Holders"],
+    comfortRatings: { support: 90, breathability: 90, adjustment: 0 },
+    dimensions: { height: "185 cm", width: "90 cm", depth: "45 cm", weightLimit: "160 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/HF-4.jpg"
   }
 ];
 
 // Automatically assign storeType based on category
 mockProducts.forEach(p => {
-  if (['Beds', 'Bunkbeds', 'Home', 'Lounge', 'Home Shelves'].includes(p.category)) {
+  if (['Beds', 'Bunkbeds', 'Home', 'Lounge', 'Home Shelves', 'Cabinets/Lockers'].includes(p.category)) {
     p.storeType = 'home';
   } else {
     p.storeType = 'office';
@@ -1901,7 +2071,8 @@ function setupCatalog() {
         { id: "Home", label: "Home & Lounge" },
         { id: "Beds", label: "Beds" },
         { id: "Bunkbeds", label: "Bunkbeds" },
-        { id: "Home Shelves", label: "Shelves" }
+        { id: "Home Shelves", label: "Shelves" },
+        { id: "Cabinets/Lockers", label: "Cabinets/Lockers" }
       );
     }
 
