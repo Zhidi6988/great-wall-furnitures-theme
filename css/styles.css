@@ -2469,3 +2469,35 @@ body {
 .compare-bar, .drawer, .modal {
   transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s ease, border-color 0.3s ease;
 }
+
+/* Featured Products Slider Overlay */
+#featured-products {
+  display: grid !important;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: none !important;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 1fr);
+  gap: 32px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+#featured-products .featured-item {
+  scroll-snap-align: start;
+}
+#featured-products::-webkit-scrollbar {
+  height: 8px;
+}
+#featured-products::-webkit-scrollbar-track {
+  background: hsl(var(--color-bg-card));
+  border-radius: 4px;
+}
+#featured-products::-webkit-scrollbar-thumb {
+  background: hsl(var(--color-border));
+  border-radius: 4px;
+}
+#featured-products::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--color-text-muted));
+}
