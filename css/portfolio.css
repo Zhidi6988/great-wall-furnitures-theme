@@ -233,6 +233,7 @@ body {
 .highlight-line {
   width: 4px; /* Slightly thicker */
   height: auto;
+  min-height: 40px; /* Guarantee visibility */
   align-self: stretch;
   background: var(--color-primary);
   border-radius: 2px;
