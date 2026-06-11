@@ -1117,6 +1117,26 @@ function renderFeaturedProducts(elementId) {
       </div>
     `;
   }).join('');
+
+  // Initialize auto-slider
+  if (!window.featuredSliderInitialized) {
+    window.featuredSliderInitialized = true;
+    let isHovered = false;
+    container.addEventListener('mouseenter', () => isHovered = true);
+    container.addEventListener('mouseleave', () => isHovered = false);
+    container.addEventListener('touchstart', () => isHovered = true);
+    container.addEventListener('touchend', () => isHovered = false);
+
+    setInterval(() => {
+      if (isHovered) return;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      if (container.scrollLeft >= maxScroll - 10) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: 312, behavior: 'smooth' });
+      }
+    }, 4000);
+  }
 }
 
 // Render Products Grid
