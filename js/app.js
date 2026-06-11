@@ -531,10 +531,7 @@ const mockProducts = [
 
 // Automatically assign storeType based on category
 mockProducts.forEach(p => {
-  // If the product is assigned "Beds" or "Normal Beds" we treat it as Home.
-  // Home Shelves specifically created so they do not overlap with office Shelves.
-  if (p.category === 'Beds') p.category = 'Normal Beds'; // Auto-rename Beds to Normal Beds
-  if (['Normal Beds', 'Bunkbeds', 'Home', 'Lounge', 'Home Shelves'].includes(p.category)) {
+  if (['Beds', 'Bunkbeds', 'Home', 'Lounge', 'Home Shelves'].includes(p.category)) {
     p.storeType = 'home';
   } else {
     p.storeType = 'office';
@@ -555,10 +552,10 @@ const storeCategories = {
     { title: 'Executive Lounge', image: window.themeUrl + '/images/hero_office_home.png' }
   ],
   'home': [
-    { title: 'Normal Beds', image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/LK-1（6腿-）.jpg" },
-    { title: 'Bunkbeds', image: "https://greatwallfurnitures.com/wp-content/uploads/2020/02/SHD-2-3.jpg" },
-    { title: 'Home Shelves', image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/XG.jpg" },
-    { title: 'Home Essentials', image: window.themeUrl + '/images/hero_home_setup.png' }
+    { title: 'Home Essentials', image: window.themeUrl + '/images/hero_office_home.png' },
+    { title: 'Bunkbeds', image: window.themeUrl + '/images/product_bunk_bed_1780572574007.png' },
+    { title: 'Dining Sets', image: window.themeUrl + '/images/specialty_chair.png' },
+    { title: 'Sofa Beds', image: window.themeUrl + '/images/hero_home_setup.png' }
   ]
 };
 
@@ -1849,7 +1846,9 @@ function setupCatalog() {
     } else {
       cats.push(
         { id: "Home", label: "Home & Lounge" },
-        { id: "Bunkbeds", label: "Bunkbeds" }
+        { id: "Beds", label: "Beds" },
+        { id: "Bunkbeds", label: "Bunkbeds" },
+        { id: "Home Shelves", label: "Shelves" }
       );
     }
 
