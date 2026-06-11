@@ -1129,38 +1129,47 @@ function renderFeaturedProducts(elementId) {
     </div>
   `;
 
-  // Initialize auto-slider
-  if (!window.featuredSliderInitialized) {
-    window.featuredSliderInitialized = true;
-    let isHovered = false;
-    container.addEventListener('mouseenter', () => isHovered = true);
-    container.addEventListener('mouseleave', () => isHovered = false);
-    container.addEventListener('touchstart', () => isHovered = true);
-    container.addEventListener('touchend', () => isHovered = false);
-
-    let speed1 = 1.2; // Row 1 moves slightly faster
-    let speed2 = 0.9; // Row 2 moves slightly slower
-    let animationId;
-
-    function autoScroll() {
-      if (!isHovered) {
-        const row1 = document.getElementById('slider-row-1');
-        const row2 = document.getElementById('slider-row-2');
-        
-        if (row1) {
-          row1.scrollLeft += speed1;
-          if (row1.scrollLeft >= row1.scrollWidth - row1.clientWidth - 1) row1.scrollLeft = 0;
-        }
-        if (row2) {
-          row2.scrollLeft += speed2;
-          if (row2.scrollLeft >= row2.scrollWidth - row2.clientWidth - 1) row2.scrollLeft = 0;
-        }
-      }
-      animationId = requestAnimationFrame(autoScroll);
-    }
-    
-    animationId = requestAnimationFrame(autoScroll);
+  // Initialize auto-slider independently for both rows
+  const row1 = document.getElementById('slider-row-1');
+  const row2 = document.getElementById('slider-row-2');
+  
+  if (window.featuredSliderAnimationId) {
+    cancelAnimationFrame(window.featuredSliderAnimationId);
   }
+  
+  let isHovered1 = false;
+  let isHovered2 = false;
+  
+  if (row1) {
+    row1.addEventListener('mouseenter', () => isHovered1 = true);
+    row1.addEventListener('mouseleave', () => isHovered1 = false);
+    row1.addEventListener('touchstart', () => isHovered1 = true, {passive: true});
+    row1.addEventListener('touchend', () => isHovered1 = false, {passive: true});
+  }
+  
+  if (row2) {
+    row2.addEventListener('mouseenter', () => isHovered2 = true);
+    row2.addEventListener('mouseleave', () => isHovered2 = false);
+    row2.addEventListener('touchstart', () => isHovered2 = true, {passive: true});
+    row2.addEventListener('touchend', () => isHovered2 = false, {passive: true});
+  }
+
+  let speed1 = 1.2; // Row 1 moves slightly faster
+  let speed2 = 0.9; // Row 2 moves slightly slower
+
+  function autoScroll() {
+    if (row1 && !isHovered1) {
+      row1.scrollLeft += speed1;
+      if (row1.scrollLeft >= row1.scrollWidth - row1.clientWidth - 1) row1.scrollLeft = 0;
+    }
+    if (row2 && !isHovered2) {
+      row2.scrollLeft += speed2;
+      if (row2.scrollLeft >= row2.scrollWidth - row2.clientWidth - 1) row2.scrollLeft = 0;
+    }
+    window.featuredSliderAnimationId = requestAnimationFrame(autoScroll);
+  }
+  
+  window.featuredSliderAnimationId = requestAnimationFrame(autoScroll);
 }
 
 // Render Products Grid
