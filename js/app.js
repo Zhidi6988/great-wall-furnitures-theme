@@ -407,12 +407,134 @@ const mockProducts = [
     dimensions: { height: "45 cm", width: "180 cm", depth: "200 cm", weightLimit: "350 kg" },
     iconColor: "var(--color-primary)",
     image: "https://greatwallfurnitures.com/wp-content/uploads/2019/12/WB-3A.jpg"
+  },
+  {
+    id: 25,
+    name: "XG Home Shelf",
+    category: "Home Shelves",
+    price: 129,
+    originalPrice: 199,
+    badge: "New",
+    rating: 4.8,
+    stockCount: 150,
+    deliveryTime: "Next-Day",
+    description: "A versatile shelving unit designed to blend beautifully with home decor.",
+    features: ["Versatile Use", "Elegant Design", "Easy Assembly", "Sturdy Build"],
+    comfortRatings: { support: 80, breathability: 100, adjustment: 20 },
+    dimensions: { height: "180 cm", width: "80 cm", depth: "35 cm", weightLimit: "100 kg per shelf" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/XG.jpg"
+  },
+  {
+    id: 26,
+    name: "TGD-5 Steel Shelf",
+    category: "Home Shelves",
+    price: 189,
+    originalPrice: 249,
+    badge: "Heavy Duty",
+    rating: 4.7,
+    stockCount: 120,
+    deliveryTime: "2-3 Days",
+    description: "Built with heavy-duty steel, this shelf provides unmatched support for heavy items.",
+    features: ["Heavy Duty Steel", "Industrial Grade", "Multiple Tiers", "Rust Resistant"],
+    comfortRatings: { support: 85, breathability: 100, adjustment: 30 },
+    dimensions: { height: "200 cm", width: "100 cm", depth: "40 cm", weightLimit: "150 kg per shelf" },
+    iconColor: "var(--color-secondary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TGD-5.jpg"
+  },
+  {
+    id: 27,
+    name: "TGD-3 Open Shelf",
+    category: "Home Shelves",
+    price: 149,
+    originalPrice: 199,
+    badge: "Open Concept",
+    rating: 4.6,
+    stockCount: 80,
+    deliveryTime: "Next-Day",
+    description: "An open concept shelf perfect for displaying books, art, and plants.",
+    features: ["Open Design", "Sleek Look", "Multi-Purpose", "Sturdy Frame"],
+    comfortRatings: { support: 80, breathability: 100, adjustment: 20 },
+    dimensions: { height: "150 cm", width: "90 cm", depth: "35 cm", weightLimit: "100 kg per shelf" },
+    iconColor: "var(--color-accent)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TGD-3-开.jpg"
+  },
+  {
+    id: 28,
+    name: "WG Multi-Tier Shelf",
+    category: "Home Shelves",
+    price: 199,
+    originalPrice: 299,
+    badge: "High Capacity",
+    rating: 4.8,
+    stockCount: 90,
+    deliveryTime: "Next-Day",
+    description: "Maximize your storage with this highly adaptable multi-tier shelving system.",
+    features: ["High Capacity", "Adjustable Shelves", "Clean Finish", "Space Saving"],
+    comfortRatings: { support: 90, breathability: 100, adjustment: 40 },
+    dimensions: { height: "190 cm", width: "120 cm", depth: "40 cm", weightLimit: "120 kg per shelf" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/WG-2-3-4-.jpg"
+  },
+  {
+    id: 29,
+    name: "WG 2-Tier Shelf",
+    category: "Home Shelves",
+    price: 89,
+    originalPrice: 129,
+    badge: "Compact",
+    rating: 4.5,
+    stockCount: 200,
+    deliveryTime: "Next-Day",
+    description: "A compact 2-tier shelf suitable for smaller spaces and quick organization.",
+    features: ["Compact Size", "2 Tiers", "Lightweight", "Quick Setup"],
+    comfortRatings: { support: 75, breathability: 100, adjustment: 10 },
+    dimensions: { height: "80 cm", width: "80 cm", depth: "30 cm", weightLimit: "80 kg per shelf" },
+    iconColor: "var(--color-secondary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/WG-2-.jpg"
+  },
+  {
+    id: 30,
+    name: "TG-4 Display Shelf",
+    category: "Home Shelves",
+    price: 159,
+    originalPrice: 219,
+    badge: "Elegant",
+    rating: 4.7,
+    stockCount: 65,
+    deliveryTime: "2-3 Days",
+    description: "An elegantly designed display shelf that turns storage into a showcase.",
+    features: ["Elegant Display", "Glass or Wood Tiers", "Solid Structure", "Modern Appeal"],
+    comfortRatings: { support: 85, breathability: 100, adjustment: 20 },
+    dimensions: { height: "160 cm", width: "85 cm", depth: "35 cm", weightLimit: "90 kg per shelf" },
+    iconColor: "var(--color-accent)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TG-4.jpg"
+  },
+  {
+    id: 31,
+    name: "TG-6 Tall Shelf",
+    category: "Home Shelves",
+    price: 219,
+    originalPrice: 289,
+    badge: "Premium",
+    rating: 4.9,
+    stockCount: 45,
+    deliveryTime: "Next-Day",
+    description: "A tall, commanding shelving unit providing maximum vertical storage.",
+    features: ["Tall Design", "Maximum Storage", "Premium Materials", "Secure Mounting"],
+    comfortRatings: { support: 95, breathability: 100, adjustment: 30 },
+    dimensions: { height: "220 cm", width: "95 cm", depth: "40 cm", weightLimit: "130 kg per shelf" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/TG-6.jpg"
   }
 ];
 
 // Automatically assign storeType based on category
 mockProducts.forEach(p => {
-  if (['Beds', 'Bunkbeds', 'Home', 'Lounge'].includes(p.category)) {
+  // If the product is assigned "Beds" or "Normal Beds" we treat it as Home.
+  // Home Shelves specifically created so they do not overlap with office Shelves.
+  if (p.category === 'Beds') p.category = 'Normal Beds'; // Auto-rename Beds to Normal Beds
+  if (['Normal Beds', 'Bunkbeds', 'Home', 'Lounge', 'Home Shelves'].includes(p.category)) {
     p.storeType = 'home';
   } else {
     p.storeType = 'office';
@@ -433,10 +555,10 @@ const storeCategories = {
     { title: 'Executive Lounge', image: window.themeUrl + '/images/hero_office_home.png' }
   ],
   'home': [
-    { title: 'Home Essentials', image: window.themeUrl + '/images/hero_office_home.png' },
-    { title: 'Bunkbeds', image: window.themeUrl + '/images/product_bunk_bed_1780572574007.png' },
-    { title: 'Dining Sets', image: window.themeUrl + '/images/specialty_chair.png' },
-    { title: 'Sofa Beds', image: window.themeUrl + '/images/hero_home_setup.png' }
+    { title: 'Normal Beds', image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/LK-1（6腿-）.jpg" },
+    { title: 'Bunkbeds', image: "https://greatwallfurnitures.com/wp-content/uploads/2020/02/SHD-2-3.jpg" },
+    { title: 'Home Shelves', image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/XG.jpg" },
+    { title: 'Home Essentials', image: window.themeUrl + '/images/hero_home_setup.png' }
   ]
 };
 
