@@ -7,7 +7,7 @@
 
 :root {
   /* Default to D1 Dark Mode */
-  --color-primary: #FF1744; /* Glowing Scarlet */
+  --color-primary: #D32F2F; /* Definitive Premium Red */
   --color-bg-dark: #0A0A0A; /* True Black */
   --color-text-light: #F3F4F6; /* Ice White */
   --color-text-muted: #9CA3AF; /* Muted grey */
@@ -164,12 +164,12 @@ body {
 .btn-primary {
   background-color: var(--color-primary);
   color: white;
-  box-shadow: 0 4px 15px rgba(242, 61, 66, 0.4);
+  box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
 }
 
 .btn-primary:hover {
-  background-color: #D32F2F;
-  box-shadow: 0 6px 20px rgba(242, 61, 66, 0.6);
+  background-color: #B71C1C;
+  box-shadow: 0 6px 20px rgba(211, 47, 47, 0.6);
   transform: translateY(-2px);
 }
 
@@ -203,13 +203,9 @@ body {
   width: 350px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem; /* Reduced gap to fit better */
   z-index: 10;
-  background: rgba(17, 17, 17, 0.4);
-  backdrop-filter: blur(10px);
-  padding: 2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Removed box styling */
 }
 
 .features-header {
@@ -240,7 +236,7 @@ body {
   align-self: stretch;
   background: var(--color-primary);
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(242, 61, 66, 0.5);
+  box-shadow: 0 0 10px rgba(211, 47, 47, 0.5);
 }
 
 .feature-text h4 {
@@ -260,7 +256,7 @@ body {
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 80px; /* Moved up to ensure visibility */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
