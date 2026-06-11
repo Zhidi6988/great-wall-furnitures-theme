@@ -15,8 +15,22 @@
 <?php wp_head(); ?>
 </head>
 <body>
-
-  <!-- Sketchfab Iframe Background -->
+<script>
+  function toggleThemeInline() {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.getElementById('theme-icon-sun').style.display = next === 'dark' ? 'block' : 'none';
+    document.getElementById('theme-icon-moon').style.display = next === 'dark' ? 'none' : 'block';
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const t = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    document.getElementById('theme-icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+    document.getElementById('theme-icon-moon').style.display = t === 'dark' ? 'none' : 'block';
+  });
+</script>  <!-- Sketchfab Iframe Background -->
   <div id="canvas-container">
     <iframe src="" id="api-frame" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" style="width: 100%; height: 100%; border: 0;"></iframe>
   </div>
@@ -32,8 +46,11 @@
 
   <!-- Scrollable Overlay Content -->
   <main class="scroll-container">
+    <a href="<?php echo home_url(); ?>" style="position: fixed; top: 20px; left: 20px; z-index: 9999; color: var(--color-text-light); text-decoration: none; font-weight: 600; background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(4px); font-family: var(--font-body); display: flex; align-items: center; gap: 8px;">
+      <i class="fa-solid fa-arrow-left"></i> Back to Home
+    </a>
     
-    <button id="theme-toggle-btn" aria-label="Toggle Theme" style="background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; padding: 8px; cursor: pointer; color: var(--color-text-light); pointer-events: auto; position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; justify-content: center; align-items: center;">
+    <button id="theme-toggle-btn" aria-label="Toggle Theme" onclick="toggleThemeInline()" style="background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; padding: 8px; cursor: pointer; color: var(--color-text-light); pointer-events: auto; position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; justify-content: center; align-items: center;">
       <svg class="svg-icon" id="theme-icon-moon" style="display: none; width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
       <svg class="svg-icon" id="theme-icon-sun" style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
     </button>
