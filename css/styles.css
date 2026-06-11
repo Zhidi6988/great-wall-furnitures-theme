@@ -2472,30 +2472,29 @@ body {
 
 /* Featured Products Slider Overlay */
 #featured-products {
-  display: grid !important;
-  grid-template-rows: repeat(2, auto);
-  grid-template-columns: none !important;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(280px, 1fr);
+  display: block !important;
+}
+
+.slider-row {
+  display: flex;
   gap: 32px;
   overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 20px;
+  padding: 10px 0 20px 0;
+  scroll-behavior: auto; /* Allow JS smooth scroll */
 }
-#featured-products .featured-item {
-  /* Removed scroll-snap */
+
+.slider-row::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for a cleaner auto-scroll look */
 }
-#featured-products::-webkit-scrollbar {
-  height: 8px;
+
+/* Hover effects for featured items */
+.slider-row .featured-item {
+  min-width: 280px;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
 }
-#featured-products::-webkit-scrollbar-track {
-  background: hsl(var(--color-bg-card));
-  border-radius: 4px;
-}
-#featured-products::-webkit-scrollbar-thumb {
-  background: hsl(var(--color-border));
-  border-radius: 4px;
-}
-#featured-products::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--color-text-muted));
+
+.slider-row .featured-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px hsl(var(--color-primary) / 0.15);
 }
