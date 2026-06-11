@@ -17,18 +17,25 @@
 <body>
 <script>
   function toggleThemeInline() {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    let current = document.documentElement.getAttribute('data-theme');
+    if (!current) current = localStorage.getItem('theme') || 'dark';
+    
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
-    document.getElementById('theme-icon-sun').style.display = next === 'dark' ? 'block' : 'none';
-    document.getElementById('theme-icon-moon').style.display = next === 'dark' ? 'none' : 'block';
+    
+    const sun = document.getElementById('theme-icon-sun');
+    const moon = document.getElementById('theme-icon-moon');
+    if(sun) sun.style.display = (next === 'dark') ? 'block' : 'none';
+    if(moon) moon.style.display = (next === 'dark') ? 'none' : 'block';
   }
   document.addEventListener('DOMContentLoaded', () => {
     const t = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', t);
-    document.getElementById('theme-icon-sun').style.display = t === 'dark' ? 'block' : 'none';
-    document.getElementById('theme-icon-moon').style.display = t === 'dark' ? 'none' : 'block';
+    const sun = document.getElementById('theme-icon-sun');
+    const moon = document.getElementById('theme-icon-moon');
+    if(sun) sun.style.display = (t === 'dark') ? 'block' : 'none';
+    if(moon) moon.style.display = (t === 'dark') ? 'none' : 'block';
   });
 </script>  <!-- Sketchfab Iframe Background -->
   <div id="canvas-container">
