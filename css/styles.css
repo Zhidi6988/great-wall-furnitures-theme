@@ -2481,11 +2481,9 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 20px;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
 }
 #featured-products .featured-item {
-  scroll-snap-align: start;
+  /* Removed scroll-snap */
 }
 #featured-products::-webkit-scrollbar {
   height: 8px;
