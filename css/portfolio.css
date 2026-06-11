@@ -11,6 +11,8 @@
   --color-bg-dark: #0A0A0A; /* True Black */
   --color-text-light: #F3F4F6; /* Ice White */
   --color-text-muted: #9CA3AF; /* Muted grey */
+  --color-panel-bg: rgba(17, 17, 17, 0.6);
+  --color-panel-border: rgba(255, 255, 255, 0.05);
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
@@ -21,6 +23,8 @@
   --color-bg-dark: #FFFFFF; /* Pure White */
   --color-text-light: #2B303A; /* Dark Slate Grey */
   --color-text-muted: #757D8A; /* Muted grey */
+  --color-panel-bg: rgba(255, 255, 255, 0.85);
+  --color-panel-border: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -107,16 +111,16 @@ body {
   margin-bottom: 2.5rem;
 }
 
-/* Dark Glassmorphism for Panels */
+/* Glassmorphism for Panels */
 .power--container, .autofocus--container, .explore--container {
   max-width: 450px;
-  background: rgba(17, 17, 17, 0.6);
+  background: var(--color-panel-bg);
   backdrop-filter: blur(12px);
   padding: 2.5rem;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  transition: border-color 0.3s ease;
+  border: 1px solid var(--color-panel-border);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .power--container:hover, .autofocus--container:hover, .explore--container:hover {
@@ -231,11 +235,11 @@ body {
 }
 
 .highlight-line {
+  display: block;
   width: 4px; /* Slightly thicker */
-  height: auto;
-  min-height: 40px; /* Guarantee visibility */
+  min-height: 60px; /* Guarantee visibility */
   align-self: stretch;
-  background: var(--color-primary);
+  background-color: var(--color-primary);
   border-radius: 2px;
   box-shadow: 0 0 15px var(--color-primary); /* Stronger glow using variable */
 }
