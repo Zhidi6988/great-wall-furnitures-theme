@@ -1101,8 +1101,11 @@ function renderFeaturedProducts(elementId) {
     .filter(p => p.storeType === currentStore)
     .sort((a, b) => b.rating - a.rating);
 
-  container.innerHTML = featuredData.map(product => {
-    return `
+  const half = Math.ceil(featuredData.length / 2);
+  const row1Data = featuredData.slice(0, half);
+  const row2Data = featuredData.slice(half);
+
+  const renderRow = (data) => data.map(product => `
       <div class="featured-item" data-id="${product.id}">
         <div class="featured-img-box" onclick="viewProductDetail(${product.id})" style="cursor: pointer; position: relative;">
           ${Math.random() > 0.5 ? '<span class="product-badge urgency" style="position: absolute; top: 10px; right: 10px; z-index: 2; border-radius: 4px; padding: 4px 8px; font-size: 12px; font-weight: bold;">🔥 Fast Selling</span>' : '<span class="product-badge urgency" style="position: absolute; top: 10px; right: 10px; z-index: 2; border-radius: 4px; padding: 4px 8px; font-size: 12px; font-weight: bold; background-color: #2E7D32;">⚡ Next Day Delivery</span>'}
@@ -1115,8 +1118,16 @@ function renderFeaturedProducts(elementId) {
         </div>
         <button class="featured-btn" onclick="addToCart(${product.id})">Shop Now</button>
       </div>
-    `;
-  }).join('');
+  `).join('');
+
+  container.innerHTML = `
+    <div class="slider-row" id="slider-row-1" style="margin-bottom: 20px;">
+      ${renderRow(row1Data)}
+    </div>
+    <div class="slider-row" id="slider-row-2">
+      ${renderRow(row2Data)}
+    </div>
+  `;
 
   // Initialize auto-slider
   if (!window.featuredSliderInitialized) {
@@ -1127,15 +1138,22 @@ function renderFeaturedProducts(elementId) {
     container.addEventListener('touchstart', () => isHovered = true);
     container.addEventListener('touchend', () => isHovered = false);
 
-    let scrollSpeed = 0.8; // Smooth and slow continuous scroll
+    let speed1 = 1.2; // Row 1 moves slightly faster
+    let speed2 = 0.9; // Row 2 moves slightly slower
     let animationId;
 
     function autoScroll() {
       if (!isHovered) {
-        container.scrollLeft += scrollSpeed;
-        const maxScroll = container.scrollWidth - container.clientWidth;
-        if (container.scrollLeft >= maxScroll - 1) {
-          container.scrollLeft = 0; // Reset to start
+        const row1 = document.getElementById('slider-row-1');
+        const row2 = document.getElementById('slider-row-2');
+        
+        if (row1) {
+          row1.scrollLeft += speed1;
+          if (row1.scrollLeft >= row1.scrollWidth - row1.clientWidth - 1) row1.scrollLeft = 0;
+        }
+        if (row2) {
+          row2.scrollLeft += speed2;
+          if (row2.scrollLeft >= row2.scrollWidth - row2.clientWidth - 1) row2.scrollLeft = 0;
         }
       }
       animationId = requestAnimationFrame(autoScroll);
