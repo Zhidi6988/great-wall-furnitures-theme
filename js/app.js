@@ -2105,6 +2105,13 @@ function setupCatalog() {
     });
 
     applyFilters();
+
+    // Scroll back to the top of the catalog layout to prevent jumping to bottom
+    const catalogLayout = document.querySelector('.catalog-layout');
+    if (catalogLayout) {
+      const offset = catalogLayout.getBoundingClientRect().top + window.scrollY - 120; // 120px buffer for fixed headers
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
   };
 
   function applyFilters() {
