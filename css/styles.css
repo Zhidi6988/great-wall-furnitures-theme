@@ -154,7 +154,7 @@ img {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
-  padding: 20px 0;
+  padding: 12px 0;
   transition: all 0.3s ease;
 }
 
