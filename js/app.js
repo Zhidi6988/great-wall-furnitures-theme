@@ -696,12 +696,114 @@ const mockProducts = [
     dimensions: { height: "185 cm", width: "90 cm", depth: "45 cm", weightLimit: "160 kg" },
     iconColor: "var(--color-primary)",
     image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/HF-4.jpg"
+  },
+  {
+    id: 42,
+    name: "C-1 Hotel Lounge Chair",
+    category: "Home Chairs",
+    price: 249,
+    originalPrice: 329,
+    badge: "Premium",
+    rating: 4.8,
+    stockCount: 60,
+    deliveryTime: "2-3 Days",
+    description: "Elegant hotel-style lounge chair that adds a touch of luxury to any home setting.",
+    features: ["Premium Upholstery", "Sturdy Frame", "Ergonomic Backrest", "Luxury Design"],
+    comfortRatings: { support: 90, breathability: 85, adjustment: 20 },
+    dimensions: { height: "95 cm", width: "65 cm", depth: "70 cm", weightLimit: "120 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/C-1酒店椅.jpg"
+  },
+  {
+    id: 43,
+    name: "NS Dining Chair",
+    category: "Home Chairs",
+    price: 129,
+    originalPrice: 179,
+    badge: "Modern",
+    rating: 4.6,
+    stockCount: 150,
+    deliveryTime: "Next-Day",
+    description: "Sleek and modern dining chair designed for both comfort and aesthetic appeal.",
+    features: ["Modern Aesthetic", "Easy to Clean", "Durable Base", "Comfortable Seat"],
+    comfortRatings: { support: 85, breathability: 80, adjustment: 10 },
+    dimensions: { height: "85 cm", width: "50 cm", depth: "55 cm", weightLimit: "110 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/NS.jpg"
+  },
+  {
+    id: 44,
+    name: "CN Classic Chair",
+    category: "Home Chairs",
+    price: 119,
+    originalPrice: 159,
+    badge: "Best Value",
+    rating: 4.5,
+    stockCount: 180,
+    deliveryTime: "Next-Day",
+    description: "A classic chair design that fits seamlessly into traditional and contemporary homes.",
+    features: ["Classic Look", "Solid Construction", "Versatile Use", "Affordable"],
+    comfortRatings: { support: 80, breathability: 75, adjustment: 10 },
+    dimensions: { height: "88 cm", width: "48 cm", depth: "52 cm", weightLimit: "100 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/CN.jpg"
+  },
+  {
+    id: 45,
+    name: "HW-5 Armchair",
+    category: "Home Chairs",
+    price: 299,
+    originalPrice: 399,
+    badge: "Top Seller",
+    rating: 4.9,
+    stockCount: 45,
+    deliveryTime: "2-3 Days",
+    description: "Plush armchair offering deep seating and exceptional comfort for relaxation.",
+    features: ["Deep Seating", "Plush Cushions", "Wide Armrests", "Premium Fabric"],
+    comfortRatings: { support: 95, breathability: 85, adjustment: 30 },
+    dimensions: { height: "100 cm", width: "80 cm", depth: "85 cm", weightLimit: "130 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/HW-5.jpg"
+  },
+  {
+    id: 46,
+    name: "Artboard Minimalist Chair",
+    category: "Home Chairs",
+    price: 159,
+    originalPrice: 219,
+    badge: "Minimalist",
+    rating: 4.7,
+    stockCount: 90,
+    deliveryTime: "Next-Day",
+    description: "A minimalist chair that makes a striking statement without overwhelming your space.",
+    features: ["Minimalist Silhouette", "Lightweight", "Sturdy Legs", "Breathable Material"],
+    comfortRatings: { support: 85, breathability: 90, adjustment: 15 },
+    dimensions: { height: "82 cm", width: "55 cm", depth: "60 cm", weightLimit: "110 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/01/reszie_Artboard-3.jpg"
+  },
+  {
+    id: 47,
+    name: "Artboard Occasional Chair",
+    category: "Home Chairs",
+    price: 189,
+    originalPrice: 249,
+    badge: "Stylish",
+    rating: 4.8,
+    stockCount: 75,
+    deliveryTime: "2-3 Days",
+    description: "Stylish occasional chair perfect for reading corners or adding extra seating.",
+    features: ["Eye-Catching Design", "Compact Footprint", "Comfortable Padding", "Accent Piece"],
+    comfortRatings: { support: 88, breathability: 85, adjustment: 20 },
+    dimensions: { height: "85 cm", width: "60 cm", depth: "65 cm", weightLimit: "115 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/01/resize-245x235_Artboard-4.jpg"
   }
 ];
 
 // Automatically assign storeType based on category
 mockProducts.forEach(p => {
-  if (['Beds', 'Bunkbeds', 'Home', 'Lounge', 'Home Shelves', 'Cabinets/Lockers'].includes(p.category)) {
+  if (['Beds', 'Bunkbeds', 'Home', 'Lounge', 'Home Shelves', 'Cabinets/Lockers', 'Home Chairs'].includes(p.category)) {
     p.storeType = 'home';
   } else {
     p.storeType = 'office';
@@ -2072,7 +2174,8 @@ function setupCatalog() {
         { id: "Beds", label: "Beds" },
         { id: "Bunkbeds", label: "Bunkbeds" },
         { id: "Home Shelves", label: "Shelves" },
-        { id: "Cabinets/Lockers", label: "Cabinets/Lockers" }
+        { id: "Cabinets/Lockers", label: "Cabinets/Lockers" },
+        { id: "Home Chairs", label: "Chairs" }
       );
     }
 
