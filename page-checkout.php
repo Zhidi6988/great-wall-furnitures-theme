@@ -7,6 +7,7 @@
   <title>Checkout | Great Wall Furnitures</title>
   <meta name="description" content="Secure checkout for your wholesale furniture order.">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script>window.themeUrl = '<?php echo get_template_directory_uri(); ?>';</script>
 <?php wp_head(); ?>
 </head>

@@ -1,4 +1,4 @@
-﻿<?php /* Template Name: contact */ ?>
+<?php /* Template Name: contact */ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

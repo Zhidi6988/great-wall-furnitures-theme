@@ -6,6 +6,7 @@
   <title>Great Wall Furnitures | Comfort & Affordable Office Solutions Dubai</title>
   <meta name="description" content="Wholesale and retail office and home furniture in Dubai. Comfort, durability, and high-speed delivery direct from our Ras Al Khor warehouse.">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script>window.themeUrl = '<?php echo get_template_directory_uri(); ?>';</script>
 <?php wp_head(); ?>
 </head>
@@ -225,7 +226,7 @@
 
   <!-- Contact & Warehouse Location Info (Immersive Map) -->
   <section id="contact-section" class="immersive-map-section full-width-banner fade-up">
-    <div class="map-background" style="background-image: url('assets/img/dubai_warehouse_map.png');"></div>
+    <div class="map-background" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/dubai_warehouse_map.png');"></div>
     <div class="container">
       <div class="contact-glass-card">
         <span class="editorial-tag">DIRECT WHOLESALE</span>
@@ -373,9 +374,9 @@
     </div>
   </div>
   <!-- Top Navigation Header -->
-</html>
   <script src="<?php echo get_template_directory_uri(); ?>/js/app.js"></script>
 <?php wp_footer(); ?>
 </body>
+</html>
 
 
