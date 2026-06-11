@@ -798,12 +798,131 @@ const mockProducts = [
     dimensions: { height: "85 cm", width: "60 cm", depth: "65 cm", weightLimit: "115 kg" },
     iconColor: "var(--color-primary)",
     image: "https://greatwallfurnitures.com/wp-content/uploads/2020/01/resize-245x235_Artboard-4.jpg"
+  },
+  {
+    id: 48,
+    name: "FT-10 Foldable Table",
+    category: "Home Tables",
+    price: 149,
+    originalPrice: 199,
+    badge: "Space Saver",
+    rating: 4.5,
+    stockCount: 120,
+    deliveryTime: "Next-Day",
+    description: "Highly versatile foldable table ideal for compact spaces or occasional use.",
+    features: ["Foldable Design", "Sturdy Frame", "Lightweight", "Easy Storage"],
+    comfortRatings: { support: 80, breathability: 0, adjustment: 90 },
+    dimensions: { height: "75 cm", width: "120 cm", depth: "60 cm", weightLimit: "50 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/FT-10.jpg"
+  },
+  {
+    id: 49,
+    name: "Round Dining Table HW-7",
+    category: "Home Tables",
+    price: 349,
+    originalPrice: 449,
+    badge: "Premium",
+    rating: 4.8,
+    stockCount: 40,
+    deliveryTime: "2-3 Days",
+    description: "Elegant round dining table offering intimate seating for families and guests.",
+    features: ["Round Top", "Solid Base", "Premium Finish", "Seats 4-6"],
+    comfortRatings: { support: 90, breathability: 0, adjustment: 0 },
+    dimensions: { height: "76 cm", width: "150 cm", depth: "150 cm", weightLimit: "100 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/HW-7HY-R150B-1.jpg"
+  },
+  {
+    id: 50,
+    name: "Rectangular Dining Table HW-3",
+    category: "Home Tables",
+    price: 289,
+    originalPrice: 389,
+    badge: "Classic",
+    rating: 4.7,
+    stockCount: 65,
+    deliveryTime: "2-3 Days",
+    description: "Classic rectangular dining table providing spacious seating and durability.",
+    features: ["Spacious Top", "Solid Wood Legs", "Scratch Resistant", "Seats 6"],
+    comfortRatings: { support: 95, breathability: 0, adjustment: 0 },
+    dimensions: { height: "76 cm", width: "160 cm", depth: "90 cm", weightLimit: "120 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/HW-3.jpg"
+  },
+  {
+    id: 51,
+    name: "Compact Dining Table HW-4",
+    category: "Home Tables",
+    price: 219,
+    originalPrice: 299,
+    badge: "Compact",
+    rating: 4.6,
+    stockCount: 85,
+    deliveryTime: "Next-Day",
+    description: "Compact dining table perfect for smaller dining areas and breakfast nooks.",
+    features: ["Compact Size", "Modern Look", "Easy Assembly", "Seats 4"],
+    comfortRatings: { support: 85, breathability: 0, adjustment: 0 },
+    dimensions: { height: "76 cm", width: "120 cm", depth: "80 cm", weightLimit: "80 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/03/HW-4.jpg"
+  },
+  {
+    id: 52,
+    name: "Artboard Square Table",
+    category: "Home Tables",
+    price: 179,
+    originalPrice: 249,
+    badge: "Modern",
+    rating: 4.4,
+    stockCount: 95,
+    deliveryTime: "Next-Day",
+    description: "Modern square table with a clean design aesthetic for contemporary homes.",
+    features: ["Square Design", "Metal Frame", "Easy Wipe Surface", "Versatile Use"],
+    comfortRatings: { support: 80, breathability: 0, adjustment: 0 },
+    dimensions: { height: "75 cm", width: "90 cm", depth: "90 cm", weightLimit: "70 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/01/resize-245x235_Artboard-2-copy.jpg"
+  },
+  {
+    id: 53,
+    name: "NT Modern Dining Table",
+    category: "Home Tables",
+    price: 269,
+    originalPrice: 349,
+    badge: "Best Seller",
+    rating: 4.9,
+    stockCount: 50,
+    deliveryTime: "2-3 Days",
+    description: "Our best-selling dining table featuring exceptional build quality and style.",
+    features: ["High Durability", "Contemporary Style", "Thick Top", "Heavy Duty Base"],
+    comfortRatings: { support: 95, breathability: 0, adjustment: 0 },
+    dimensions: { height: "76 cm", width: "150 cm", depth: "90 cm", weightLimit: "150 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2019/12/NT-12345.jpg"
+  },
+  {
+    id: 54,
+    name: "Artboard Round Table",
+    category: "Home Tables",
+    price: 199,
+    originalPrice: 269,
+    badge: "Stylish",
+    rating: 4.7,
+    stockCount: 70,
+    deliveryTime: "Next-Day",
+    description: "Stylish round table perfect for casual dining and morning coffee.",
+    features: ["Smooth Edge", "Pedestal Base", "Stable Design", "Easy to Clean"],
+    comfortRatings: { support: 85, breathability: 0, adjustment: 0 },
+    dimensions: { height: "76 cm", width: "100 cm", depth: "100 cm", weightLimit: "80 kg" },
+    iconColor: "var(--color-primary)",
+    image: "https://greatwallfurnitures.com/wp-content/uploads/2020/01/resize-245x235-01.jpg"
   }
 ];
 
 // Automatically assign storeType based on category
 mockProducts.forEach(p => {
-  if (['Beds', 'Bunkbeds', 'Home', 'Lounge', 'Home Shelves', 'Cabinets/Lockers', 'Home Chairs'].includes(p.category)) {
+  if (['Beds', 'Bunkbeds', 'Home', 'Lounge', 'Home Shelves', 'Cabinets/Lockers', 'Home Chairs', 'Home Tables'].includes(p.category)) {
     p.storeType = 'home';
   } else {
     p.storeType = 'office';
@@ -2175,7 +2294,8 @@ function setupCatalog() {
         { id: "Bunkbeds", label: "Bunkbeds" },
         { id: "Home Shelves", label: "Shelves" },
         { id: "Cabinets/Lockers", label: "Cabinets/Lockers" },
-        { id: "Home Chairs", label: "Chairs" }
+        { id: "Home Chairs", label: "Chairs" },
+        { id: "Home Tables", label: "Tables" }
       );
     }
 
