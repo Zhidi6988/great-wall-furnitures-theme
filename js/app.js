@@ -15,7 +15,7 @@ const mockProducts = [
     comfortRatings: { support: 95, breathability: 90, adjustment: 85 },
     dimensions: { height: "105 - 115 cm", width: "65 cm", depth: "60 cm", weightLimit: "135 kg" },
     iconColor: "var(--color-primary)",
-    image: "images/prod_sovereign_chair_1780577397204.png"
+    image: window.themeUrl + "/images/prod_sovereign_chair_1780577397204.png"
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const mockProducts = [
     comfortRatings: { support: 80, breathability: 70, adjustment: 90 },
     dimensions: { height: "75 cm", width: "120 cm", depth: "60 cm", weightLimit: "100 kg" },
     iconColor: "var(--color-secondary)",
-    image: "images/prod_zenith_desk_1780577410628.png"
+    image: window.themeUrl + "/images/prod_zenith_desk_1780577410628.png"
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const mockProducts = [
     comfortRatings: { support: 95, breathability: 60, adjustment: 75 },
     dimensions: { height: "180 cm", width: "90 cm", depth: "40 cm", weightLimit: "175 kg per shelf" },
     iconColor: "var(--color-accent)",
-    image: "images/prod_titan_shelf_1780577423430.png"
+    image: window.themeUrl + "/images/prod_titan_shelf_1780577423430.png"
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ const mockProducts = [
     comfortRatings: { support: 98, breathability: 85, adjustment: 60 },
     dimensions: { height: "85 cm", width: "80 cm", depth: "75 cm", weightLimit: "150 kg" },
     iconColor: "var(--color-primary)",
-    image: "images/prod_verdana_armchair_1780577435931.png"
+    image: window.themeUrl + "/images/prod_verdana_armchair_1780577435931.png"
   },
   {
     id: 5,
@@ -83,7 +83,7 @@ const mockProducts = [
     comfortRatings: { support: 85, breathability: 70, adjustment: 95 },
     dimensions: { height: "75 cm", width: "140 cm", depth: "70 cm", weightLimit: "120 kg" },
     iconColor: "var(--color-secondary)",
-    image: "images/prod_flexi_table_1780577448223.png"
+    image: window.themeUrl + "/images/prod_flexi_table_1780577448223.png"
   },
   {
     id: 6,
@@ -100,7 +100,7 @@ const mockProducts = [
     comfortRatings: { support: 75, breathability: 95, adjustment: 90 },
     dimensions: { height: "55 - 75 cm", width: "38 cm", depth: "38 cm", weightLimit: "110 kg" },
     iconColor: "var(--color-accent)",
-    image: "images/prod_aura_stool_1780643216576.png"
+    image: window.themeUrl + "/images/prod_aura_stool_1780643216576.png"
   },
   {
     id: 7,
@@ -117,7 +117,7 @@ const mockProducts = [
     comfortRatings: { support: 85, breathability: 75, adjustment: 80 },
     dimensions: { height: "76 cm", width: "110 cm", depth: "55 cm", weightLimit: "90 kg" },
     iconColor: "var(--color-primary)",
-    image: "images/prod_horizon_desk_1780643228396.png"
+    image: window.themeUrl + "/images/prod_horizon_desk_1780643228396.png"
   },
   {
     id: 8,
@@ -134,7 +134,7 @@ const mockProducts = [
     comfortRatings: { support: 80, breathability: 85, adjustment: 50 },
     dimensions: { height: "78 cm", width: "48 cm", depth: "50 cm", weightLimit: "120 kg" },
     iconColor: "var(--color-secondary)",
-    image: "images/prod_metro_chair_1780643241235.png"
+    image: window.themeUrl + "/images/prod_metro_chair_1780643241235.png"
   },
   {
     id: 9,
@@ -151,7 +151,7 @@ const mockProducts = [
     comfortRatings: { support: 90, breathability: 100, adjustment: 20 },
     dimensions: { height: "165 cm", width: "95 cm", depth: "200 cm", weightLimit: "150 kg per bunk" },
     iconColor: "var(--color-primary)",
-    image: "images/prod_steel_bunk_bed.png"
+    image: window.themeUrl + "/images/prod_steel_bunk_bed.png"
   },
   {
     id: 10,
@@ -168,7 +168,7 @@ const mockProducts = [
     comfortRatings: { support: 85, breathability: 100, adjustment: 40 },
     dimensions: { height: "170 cm", width: "100 cm", depth: "205 cm", weightLimit: "120 kg per bunk" },
     iconColor: "var(--color-secondary)",
-    image: "images/prod_wood_bunk_bed.png"
+    image: window.themeUrl + "/images/prod_wood_bunk_bed.png"
   },
   {
     id: 11,
@@ -185,7 +185,7 @@ const mockProducts = [
     comfortRatings: { support: 80, breathability: 100, adjustment: 10 },
     dimensions: { height: "155 cm", width: "98 cm", depth: "198 cm", weightLimit: "100 kg per bunk" },
     iconColor: "var(--color-accent)",
-    image: "images/prod_twin_bunk_bed.png"
+    image: window.themeUrl + "/images/prod_twin_bunk_bed.png"
   }
 ];
 
@@ -206,34 +206,34 @@ let compareList = [];
 // Store Categories Definition
 const storeCategories = {
   'office': [
-    { title: 'Premium Chairs', image: 'images/specialty_chair.png' },
-    { title: 'Modern Desks', image: 'images/hero_office_home.png' },
-    { title: 'Industrial Shelves', image: 'images/hero_premium_office.png' },
-    { title: 'Executive Lounge', image: 'images/hero_office_home.png' }
+    { title: 'Premium Chairs', image: window.themeUrl + '/images/specialty_chair.png' },
+    { title: 'Modern Desks', image: window.themeUrl + '/images/hero_office_home.png' },
+    { title: 'Industrial Shelves', image: window.themeUrl + '/images/hero_premium_office.png' },
+    { title: 'Executive Lounge', image: window.themeUrl + '/images/hero_office_home.png' }
   ],
   'home': [
-    { title: 'Home Essentials', image: 'images/hero_office_home.png' },
-    { title: 'Bunkbeds', image: 'images/product_bunk_bed_1780572574007.png' },
-    { title: 'Dining Sets', image: 'images/specialty_chair.png' },
-    { title: 'Sofa Beds', image: 'images/hero_home_setup.png' }
+    { title: 'Home Essentials', image: window.themeUrl + '/images/hero_office_home.png' },
+    { title: 'Bunkbeds', image: window.themeUrl + '/images/product_bunk_bed_1780572574007.png' },
+    { title: 'Dining Sets', image: window.themeUrl + '/images/specialty_chair.png' },
+    { title: 'Sofa Beds', image: window.themeUrl + '/images/hero_home_setup.png' }
   ]
 };
 
 // Store-specific Hero Content
 const storeContent = {
   office: {
-    heroSlides: ['images/hero_premium_office.png', 'images/hero_warehouse.png', 'images/pano_large_office_final_1780576987747.png'],
+    heroSlides: [window.themeUrl + '/images/hero_premium_office.png', window.themeUrl + '/images/hero_warehouse.png', window.themeUrl + '/images/pano_large_office_final_1780576987747.png'],
     heroTitle: 'Command your workspace with unmatched comfort.',
     heroDesc: 'Equip your office with deeply comfortable, ergonomic, and highly functional furniture at unbeatable wholesale prices. Fast dispatch anywhere in Dubai.',
     logoText: 'Great Wall | Office',
-    icon: '🏢'
+    icon: 'ðŸ¢'
   },
   home: {
-    heroSlides: ['images/hero_home_setup.png', 'images/product_bunk_bed_1780572574007.png', 'images/hero_furniture_showcase.png'],
+    heroSlides: [window.themeUrl + '/images/hero_home_setup.png', window.themeUrl + '/images/product_bunk_bed_1780572574007.png', window.themeUrl + '/images/hero_furniture_showcase.png'],
     heroTitle: 'Transform your living space with cozy elegance.',
     heroDesc: 'Furnish your home with beautifully designed, ultra-comfortable pieces at unbeatable wholesale prices. Fast dispatch anywhere in Dubai.',
     logoText: 'Great Wall | Home',
-    icon: '🛋️'
+    icon: 'ðŸ›‹ï¸'
   }
 };
 
@@ -295,9 +295,9 @@ const plannerContent = {
     resultsTitle: 'Suggested Transition Bundle',
     resultsDesc: 'Designed to provide matching home-office comfort and maximum workflow efficiency.',
     panoImages: {
-      small: "images/pano_small_office_1780574042953.png",
-      medium: "images/pano_medium_office_1780574059645.png",
-      large: "images/pano_large_office_final_1780576987747.png"
+      small: window.themeUrl + "/images/pano_small_office_1780574042953.png",
+      medium: window.themeUrl + "/images/pano_medium_office_1780574059645.png",
+      large: window.themeUrl + "/images/pano_large_office_final_1780576987747.png"
     }
   },
   home: {
@@ -320,9 +320,9 @@ const plannerContent = {
     resultsTitle: 'Suggested Home Bundle',
     resultsDesc: 'Designed to provide maximum comfort, space-saving utility, and beautiful aesthetics.',
     panoImages: {
-      small: "images/hero_home_setup.png",
-      medium: "images/hero_furniture_showcase.png",
-      large: "images/pano_large_home_1780909951430.png"
+      small: window.themeUrl + "/images/hero_home_setup.png",
+      medium: window.themeUrl + "/images/hero_furniture_showcase.png",
+      large: window.themeUrl + "/images/pano_large_home_1780909951430.png"
     }
   }
 };
@@ -376,7 +376,7 @@ function applyStorefrontState(store) {
   const logoTextEl = document.querySelector('.logo');
   if (logoTextEl) {
     logoTextEl.innerHTML = `
-      <img src="images/logo_piloteer_transparent.png" alt="Piloteer Logo" style="height: 45px;">
+      <img src="${window.themeUrl}/images/logo_piloteer_transparent.png" alt="Piloteer Logo" style="height: 45px;">
       Great Wall<span>| ${store === 'home' ? 'Home' : 'Office'}</span>
     `;
   }
@@ -814,21 +814,16 @@ function renderProducts(productsToRender, elementId) {
           <svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10l-6-7zM14 8h5v2h-5V8zm-2 5H5v-2h7v2zm5 4H5v-2h12v2z"/></svg>
         </button>
         <div class="product-content">
-          <span class="product-category">${product.category}</span>
           <h3 class="product-name" onclick="viewProductDetail(${product.id})">${product.name}</h3>
-          
-          <div class="product-rating" style="margin-bottom: 8px; font-size: 13px; color: #FFA41C; display: flex; align-items: center; gap: 4px;">
+          <div class="product-stars">
             <span>${'★'.repeat(Math.round(product.rating))}${'☆'.repeat(5 - Math.round(product.rating))}</span>
+            <span style="color:hsl(var(--color-text-muted)); font-size:12px; margin-left:8px;">(${product.stockCount} in stock)</span>
             <span style="color: hsl(var(--color-text-muted)); margin-left: 4px;">${product.rating} (${(product.id * 47) % 300 + 15} reviews)</span>
           </div>
 
           <div class="product-features-preview">
             ${product.features.slice(0, 2).map(f => `<span class="feature-tag-sm">${f}</span>`).join('')}
-            <span class="feature-tag-sm" style="color: hsl(var(--color-secondary));">${product.deliveryTime}</span>
-          </div>
-
-          <div style="font-size:12px; margin-bottom: 12px; color: hsl(var(--color-secondary)); font-weight:600;">
-            📦 In Stock: <span style="font-weight:700;">${product.stockCount} units</span>
+            <span class="feature-tag-sm" style="color: hsl(var(--color-secondary));">⚡ ${product.deliveryTime}</span>
           </div>
 
           <div class="product-footer">
@@ -1422,7 +1417,7 @@ function showCompareModal() {
             ${compareProducts.map(p => `<td style="padding:12px; text-align:center;">${p.category}</td>`).join('')}
           </tr>
           <tr>
-            <td style="padding:12px; font-weight:700; color:hsl(var(--color-text-muted));">Delivery Speed</td>
+            <td style="padding:12px; border-right:1px solid hsl(var(--color-border)); font-weight:bold; width:20%;">Delivery</td>
             ${compareProducts.map(p => `<td style="padding:12px; text-align:center; color:hsl(var(--color-secondary)); font-weight:600;">⚡ ${p.deliveryTime}</td>`).join('')}
           </tr>
           <tr>
@@ -1458,8 +1453,8 @@ function showCompareModal() {
             <td style="padding:12px; font-weight:700; color:hsl(var(--color-text-muted));">Unique Features</td>
             ${compareProducts.map(p => `
               <td style="padding:12px; font-size:13px; text-align:center;">
-                <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:4px;">
-                  ${p.features.map(f => `<li>• ${f}</li>`).join('')}
+                <ul style="padding-left:20px; text-align:left; color:hsl(var(--color-text-muted)); font-size:14px;">
+                  ${p.features.map(f => `<li>✓ ${f}</li>`).join('')}
                 </ul>
               </td>
             `).join('')}
@@ -1656,28 +1651,22 @@ function setupProductDetails() {
         <span class="detail-category">${product.category}</span>
         <h1 class="detail-title">${product.name}</h1>
         
-        <div class="product-rating" style="margin-bottom: 16px; font-size: 15px; color: #FFA41C; display: flex; align-items: center; gap: 6px;">
+        <div class="detail-rating">
           <span>${'★'.repeat(Math.round(product.rating))}${'☆'.repeat(5 - Math.round(product.rating))}</span>
-          <span style="color: hsl(var(--color-text-muted)); font-weight: 500;">${product.rating} out of 5 (${(product.id * 47) % 300 + 15} reviews)</span>
+          <span style="color:hsl(var(--color-text-muted)); margin-left:10px;">${product.rating} / 5.0</span>
         </div>
 
         <div class="detail-price-row">
           <span class="detail-price">AED ${product.price}</span>
           <span class="price-original" style="font-size: 18px; margin-top:2px;">AED ${product.originalPrice}</span>
+        </div>
+        
+        <div class="detail-stock-delivery">
           <span class="detail-stock">⚡ ${product.deliveryTime} Delivery</span>
+          <span class="detail-stock" style="background: hsl(var(--color-accent)/0.1); color: hsl(var(--color-accent));">✓ ${product.stockCount} In Stock Dubai</span>
         </div>
 
         <p class="detail-desc">${product.description}</p>
-
-        <!-- Scorecard was moved to the left column -->
-
-        <div style="margin-bottom: 32px; background-color: hsl(var(--color-accent) / 0.08); border-radius: var(--radius-md); padding:16px; border: 1px solid hsl(var(--color-accent) / 0.2); display:flex; align-items:center; gap:16px;">
-          <div style="font-size:24px;">📦</div>
-          <div>
-            <div style="font-weight:700; color: hsl(var(--color-text-dark));">Immediate Local Availability</div>
-            <div style="font-size:14px; color: hsl(var(--color-text-muted));">Vast Dubai warehouse stock: <span style="font-weight:700; color:hsl(var(--color-secondary));">${product.stockCount} units</span> ready for dispatch.</div>
-          </div>
-        </div>
 
         <div style="display:flex; gap:16px; margin-bottom: 20px;">
           <button class="btn btn-primary" onclick="addToCart(${product.id})" style="flex-grow:1; padding: 16px 28px;">Add to Cart</button>
@@ -1715,11 +1704,9 @@ function setupProductDetails() {
       <!-- Reviews Column -->
       <div class="detail-reviews-section">
         <h3 style="font-size: 20px; border-bottom: 1px solid hsl(var(--color-border)); padding-bottom: 8px; margin-bottom: 16px;">Customer Reviews</h3>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding: 16px; background-color: hsl(var(--color-bg-card)); border-radius: var(--radius-sm); border: 1px solid hsl(var(--color-border));">
-          <div>
-            <div style="font-size: 28px; font-weight: 800; color: hsl(var(--color-text-dark));">${product.rating}</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
             <div style="color: #FFA41C; font-size: 18px;">${'★'.repeat(Math.round(product.rating))}${'☆'.repeat(5 - Math.round(product.rating))}</div>
-            <div style="font-size: 13px; color: hsl(var(--color-text-muted)); margin-top: 4px;">Based on ${(product.id * 47) % 300 + 15} ratings</div>
+            <div style="color: hsl(var(--color-text-muted)); font-size: 14px;">Verified Purchase</div>
           </div>
           <button class="btn btn-secondary" onclick="alert('Review submitted for moderation. Thank you!')" style="padding: 10px 20px;">Write a Review</button>
         </div>
@@ -1728,22 +1715,20 @@ function setupProductDetails() {
           <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
             <div style="width: 32px; height: 32px; background-color: hsl(var(--color-primary)); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px;">A</div>
             <div>
-              <div style="font-weight: 600; font-size: 14px;">Ahmed M.</div>
               <div style="color: #FFA41C; font-size: 12px;">★★★★★</div>
+              <p style="margin: 5px 0; font-size: 14px;">"Absolutely transformed my workspace! The delivery was incredibly fast, arrived the very next day in Dubai."</p>
             </div>
           </div>
-          <p style="font-size: 14px; color: hsl(var(--color-text-muted));">Excellent quality for the wholesale price. Delivered exactly as promised the next day. Very comfortable.</p>
         </div>
         
         <div class="review-item">
           <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
             <div style="width: 32px; height: 32px; background-color: hsl(var(--color-secondary)); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px;">S</div>
             <div>
-              <div style="font-weight: 600; font-size: 14px;">Sarah K.</div>
               <div style="color: #FFA41C; font-size: 12px;">★★★★☆</div>
+              <p style="margin: 5px 0; font-size: 14px;">"Great quality furniture for the price. Assembly took a bit longer than expected but totally worth it."</p>
             </div>
           </div>
-          <p style="font-size: 14px; color: hsl(var(--color-text-muted));">Really good. The setup was incredibly easy and it fits the office well. Would recommend.</p>
         </div>
       </div>
     </div>
@@ -1857,3 +1842,4 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollAnimations();
   initTiltEffect();
 });
+
