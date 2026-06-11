@@ -153,8 +153,9 @@ img {
   background-color: hsl(var(--color-bg-warm) / 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid hsl(var(--color-border));
-  transition: var(--transition-smooth);
+  border-bottom: 1px solid transparent;
+  padding: 20px 0;
+  transition: all 0.3s ease;
 }
 
 .header.transparent {
@@ -342,14 +343,13 @@ img {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 100px 0;
+  padding: 140px 0 100px;
 }
 
 .hero::before {
@@ -516,7 +516,7 @@ img {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
 }
 
@@ -1896,6 +1896,10 @@ img {
   font-size: 1.05rem;
   color: hsl(var(--color-text-dark));
   font-weight: 500;
+}
+
+.contact-glass-card .detail-value {
+  color: #e2e8f0;
 }
 
 .detail-value.highlight {
