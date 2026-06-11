@@ -63,7 +63,7 @@ body {
 .header-section {
   min-height: 20vh;
   align-items: flex-start;
-  padding-top: 2rem;
+  padding-top: 100px;
 }
 
 .header--container h2 {
