@@ -6,12 +6,21 @@
 }
 
 :root {
-  --color-primary: #F23D42;
-  --color-bg-dark: #111111;
-  --color-text-light: #F9FAFB;
-  --color-text-muted: #A0AAB2;
+  /* Default to D1 Dark Mode */
+  --color-primary: #FF1744; /* Glowing Scarlet */
+  --color-bg-dark: #0A0A0A; /* True Black */
+  --color-text-light: #F3F4F6; /* Ice White */
+  --color-text-muted: #9CA3AF; /* Muted grey */
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
+}
+
+[data-theme="light"] {
+  /* L1 Light Mode */
+  --color-primary: #C62828; /* Deep Crimson */
+  --color-bg-dark: #FFFFFF; /* Pure White */
+  --color-text-light: #2B303A; /* Dark Slate Grey */
+  --color-text-muted: #757D8A; /* Muted grey */
 }
 
 body {

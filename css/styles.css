@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* HSL Color System - Red & White Theme */
+  /* HSL Color System - L1 Executive Crisp */
   --color-bg-warm: 0 0% 100%;        /* #FFFFFF - Pure White Background */
-  --color-bg-card: 0 0% 98%;         /* #FAFAFA - Off-White for Cards */
-  --color-text-dark: 210 12% 15%;    /* #212529 - Deep Charcoal */
+  --color-bg-card: 0 0% 99%;         /* #FCFCFC - Pearl White for Cards */
+  --color-text-dark: 221 15% 20%;    /* #2B303A - Dark Slate Grey */
   --color-text-light: 0 0% 100%;     /* #FFFFFF - White text */
-  --color-text-muted: 210 8% 45%;    /* #6C757D - Muted Grey */
-  --color-border: 0 0% 92%;          /* Subtle clean grey border */
+  --color-text-muted: 221 10% 50%;   /* #757D8A - Muted Grey */
+  --color-border: 221 10% 90%;       /* Subtle clean grey border */
   
   /* Brand Accents */
-  --color-primary: 358 83% 57%;      /* #F23D42 - Vibrant Brand Red */
-  --color-primary-hover: 358 83% 47%;/* Darker Red */
-  --color-secondary: 358 70% 35%;    /* #991B1B - Burgundy/Crimson Accent */
-  --color-secondary-hover: 358 70% 25%;
-  --color-accent: 358 83% 57%;       /* Vibrant Brand Red */
-  --color-accent-light: 358 83% 97%; /* Soft Light Red highlight background */
+  --color-primary: 0 66% 47%;        /* #C62828 - Deep Crimson */
+  --color-primary-hover: 0 66% 37%;  /* Darker Crimson */
+  --color-secondary: 0 70% 30%;      /* Darker Accent */
+  --color-secondary-hover: 0 70% 20%;
+  --color-accent: 0 66% 47%;         /* Deep Crimson */
+  --color-accent-light: 0 66% 96%;   /* Soft Light Red highlight background */
   
   /* System / UI Colors */
   --color-success: 142 72% 29%;
@@ -2427,19 +2427,21 @@ img {
 
 /* Dark Mode Theme */
 [data-theme="dark"] {
-  --color-bg-warm: 210 12% 10%;        /* Deep Charcoal/Slate Background */
-  --color-bg-card: 210 12% 14%;        /* Lighter Slate for Cards */
-  --color-text-dark: 0 0% 98%;         /* Off-White Text */
-  --color-text-light: 0 0% 100%;       /* White text */
-  --color-text-muted: 210 8% 65%;      /* Lighter Grey */
-  --color-border: 210 12% 20%;         /* Darker border */
+  /* D1 Midnight & Neon */
+  --color-bg-warm: 0 0% 4%;            /* True Black Background (#0A0A0A) */
+  --color-bg-card: 0 0% 8%;            /* Onyx Cards (#141414) */
+  --color-text-dark: 220 14% 96%;      /* Ice White Text (#F3F4F6) */
+  --color-text-light: 0 0% 100%;       /* Pure White text */
+  --color-text-muted: 220 10% 60%;     /* Lighter Grey */
+  --color-border: 0 0% 15%;            /* Darker border */
   
-  --color-primary: 358 83% 62%;        /* Slightly lighter red for dark mode contrast */
-  --color-accent-light: 358 83% 15%;   /* Deep red tint for highlights */
+  --color-primary: 348 100% 55%;       /* Glowing Scarlet Red (#FF1744) */
+  --color-primary-hover: 348 100% 65%;
+  --color-accent-light: 348 100% 15%;  /* Deep red tint for highlights */
   
   /* Make secondary light enough for text on dark backgrounds */
   --color-secondary: 216 50% 70%;      /* Light Blue for Office Dark Mode */
-  --color-secondary-text: 210 12% 10%; /* Deep Charcoal text */
+  --color-secondary-text: 0 0% 4%;     /* True Black text */
 }
 
 /* Home Mode Dark Overrides */
