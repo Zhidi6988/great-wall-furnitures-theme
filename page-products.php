@@ -72,7 +72,7 @@
       }
     }
   </style>
-<script>window.themeUrl = '<?php echo get_template_directory_uri(); ?>';</script>
+<script>window.siteUrl = '<?php echo home_url(); ?>'; window.themeUrl = '<?php echo get_template_directory_uri(); ?>';</script>
 <?php wp_head(); ?>
 </head>
 <body>

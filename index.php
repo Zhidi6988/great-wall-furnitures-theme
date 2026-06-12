@@ -7,7 +7,7 @@
   <meta name="description" content="Wholesale and retail office and home furniture in Dubai. Comfort, durability, and high-speed delivery direct from our Ras Al Khor warehouse.">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script>window.themeUrl = '<?php echo get_template_directory_uri(); ?>';</script>
+<script>window.siteUrl = '<?php echo home_url(); ?>'; window.themeUrl = '<?php echo get_template_directory_uri(); ?>';</script>
 <?php wp_head(); ?>
 </head>
 <body>

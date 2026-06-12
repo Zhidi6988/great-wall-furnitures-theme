@@ -7,7 +7,7 @@
   <title>Product Details - Great Wall Furnitures Dubai</title>
   <meta name="description" content="View dimensions, comfort ratings, and wholesale pricing for office chairs, modular desks, and metal shelves. Instantly available from our Ras Al Khor warehouse.">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css">
-<script>window.themeUrl = '<?php echo get_template_directory_uri(); ?>';</script>
+<script>window.siteUrl = '<?php echo home_url(); ?>'; window.themeUrl = '<?php echo get_template_directory_uri(); ?>';</script>
 <?php wp_head(); ?>
 </head>
 <body>
