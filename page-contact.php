@@ -50,7 +50,7 @@
   </header>
 
   <!-- Contact Banner (Image 1 style) -->
-  <section class="shop-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/contact_hero_banner.png'); text-align: right;">
+  <section class="shop-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<?php echo get_template_directory_uri(); ?>/assets/img/contact_hero_banner.png'); text-align: right;">
     <div class="container">
       <h1 class="shop-banner-title">Contact Us</h1>
       <div class="breadcrumbs">
@@ -203,7 +203,7 @@
 
   <!-- Contact & Warehouse Location Info (Immersive Map) -->
   <section class="immersive-map-section">
-    <div class="map-background" style="background-image: url('assets/img/dubai_warehouse_map.png');"></div>
+    <div class="map-background" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/dubai_warehouse_map.png');"></div>
     <div class="container">
       <div class="contact-glass-card">
         <span class="editorial-tag">DIRECT WHOLESALE</span>
