@@ -49,7 +49,7 @@
   <!-- Product Detail Section -->
   <section class="section-padding">
     <div class="container" id="product-detail-container">
-      <!-- Loaded dynamically via js/app.js -->
+      <!-- Loaded dynamically via js/app.js?v=<?php echo time(); ?> -->
     </div>
   </section>
 
@@ -145,7 +145,7 @@
     </div>
   </div>
 
-  <script src="<?php echo get_template_directory_uri(); ?>/js/app.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/app.js?v=<?php echo time(); ?>"></script>
 <?php wp_footer(); ?>
 </body>
 </html>
