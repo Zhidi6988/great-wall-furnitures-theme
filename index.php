@@ -374,7 +374,7 @@
     </div>
   </div>
   <!-- Top Navigation Header -->
-  <script src="<?php echo get_template_directory_uri(); ?>/js/app.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/app.js?v=<?php echo time(); ?>"></script>
 <?php wp_footer(); ?>
 </body>
 </html>
