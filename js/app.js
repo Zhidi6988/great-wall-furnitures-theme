@@ -1813,7 +1813,8 @@ function renderProducts(productsToRender, elementId) {
 
 // Redirect/Simulate viewing detail page
 function viewProductDetail(productId) {
-  window.location.href = `product-detail.html?id=${productId}`;
+  // Use absolute path for WP routing to ensure it hits page-product-detail.php correctly
+  window.location.href = `/product-detail/?id=${productId}`;
 }
 
 // Cart Drawer Operations
