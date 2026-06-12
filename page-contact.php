@@ -12,7 +12,9 @@
 <?php wp_head(); ?>
 </head>
 <body>
-
+  <div id="splash-screen">
+    <img src="https://greatwallfurnitures.com/wp-content/uploads/2020/02/Great-Wall-logo-reszie-b.png" alt="Loading">
+  </div>
   <!-- Top Navigation Header -->
   <header class="header transparent">
     <div class="container nav-container">

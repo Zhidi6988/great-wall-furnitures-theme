@@ -13,7 +13,7 @@
 <body>
   <!-- Cinematic Splash Screen -->
   <div id="splash-screen">
-    <img src="<?php echo get_template_directory_uri(); ?>/images/logo_piloteer_transparent.png" alt="Piloteer Loading">
+    <img src="https://greatwallfurnitures.com/wp-content/uploads/2020/02/Great-Wall-logo-reszie-b.png" alt="Loading">
   </div>
 
   <!-- Top Navigation Header -->
