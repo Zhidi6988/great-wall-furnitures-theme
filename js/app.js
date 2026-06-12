@@ -2652,39 +2652,39 @@ function setupProductDetails() {
 
         <p class="detail-desc">${product.description}</p>
 
-        <div style="display:flex; gap:16px; margin-bottom: 20px;">
+        <div style="display:flex; gap:16px; margin-bottom: 40px;">
           <button class="btn btn-primary" onclick="addToCart(${product.id})" style="flex-grow:1; padding: 16px 28px;">Add to Cart</button>
           <button class="btn btn-secondary" onclick="toggleCompare(${product.id})" style="padding: 16px 20px;">Compare</button>
+        </div>
+
+        <!-- Specifications Moved Here -->
+        <div class="detail-specs-section">
+          <h3 style="font-size: 20px; border-bottom: 1px solid hsl(var(--color-border)); padding-bottom: 8px; margin-bottom: 16px;">Product Specifications</h3>
+          <table class="specs-table">
+            <tr>
+              <td>Dimensions (H x W x D)</td>
+              <td>${product.dimensions.height} x ${product.dimensions.width} x ${product.dimensions.depth}</td>
+            </tr>
+            <tr>
+              <td>Weight Capacity Limit</td>
+              <td>${product.dimensions.weightLimit}</td>
+            </tr>
+            <tr>
+              <td>Assembly Method</td>
+              <td>Easy Toolless Setup / Pre-Assembled options</td>
+            </tr>
+            <tr>
+              <td>Core Advantage features</td>
+              <td>${product.features.join(", ")}</td>
+            </tr>
+          </table>
         </div>
 
       </div>
     </div>
 
-    <!-- Specifications and Reviews Layout -->
+    <!-- Reviews Layout -->
     <div class="detail-bottom-grid">
-      <!-- Specifications Column -->
-      <div class="detail-specs-section">
-        <h3 style="font-size: 20px; border-bottom: 1px solid hsl(var(--color-border)); padding-bottom: 8px; margin-bottom: 16px;">Product Specifications</h3>
-        <table class="specs-table">
-          <tr>
-            <td>Dimensions (H x W x D)</td>
-            <td>${product.dimensions.height} x ${product.dimensions.width} x ${product.dimensions.depth}</td>
-          </tr>
-          <tr>
-            <td>Weight Capacity Limit</td>
-            <td>${product.dimensions.weightLimit}</td>
-          </tr>
-          <tr>
-            <td>Assembly Method</td>
-            <td>Easy Toolless Setup / Pre-Assembled options</td>
-          </tr>
-          <tr>
-            <td>Core Advantage features</td>
-            <td>${product.features.join(", ")}</td>
-          </tr>
-        </table>
-      </div>
-
       <!-- Reviews Column -->
       <div class="detail-reviews-section">
         <h3 style="font-size: 20px; border-bottom: 1px solid hsl(var(--color-border)); padding-bottom: 8px; margin-bottom: 16px;">Customer Reviews</h3>
