@@ -151,30 +151,33 @@
       <div class="faq-accordion" style="display: flex; flex-direction: column; gap: 16px;">
         <!-- FAQ Item 1 -->
         <div class="faq-item" style="border: 1px solid hsl(var(--color-border)); border-radius: 12px; padding: 24px; background: white;">
-          <h4 style="font-size: 1.1rem; color: hsl(var(--color-text-dark)); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+          <h4 style="font-size: 1.1rem; color: hsl(var(--color-text-dark)); display: flex; align-items: center; justify-content: space-between; margin: 0;">
             What is the minimum order quantity for wholesale pricing?
+            <i class="fas fa-plus faq-icon"></i>
           </h4>
-          <p style="color: hsl(var(--color-text-muted)); line-height: 1.6;">
+          <p class="faq-answer" style="color: hsl(var(--color-text-muted)); line-height: 1.6;">
             Wholesale pricing automatically kicks in for orders of 10 units or more. For ultra-bulk orders (50+ units), please contact us directly via WhatsApp or Phone for custom quotes.
           </p>
         </div>
         
         <!-- FAQ Item 2 -->
         <div class="faq-item" style="border: 1px solid hsl(var(--color-border)); border-radius: 12px; padding: 24px; background: white;">
-          <h4 style="font-size: 1.1rem; color: hsl(var(--color-text-dark)); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+          <h4 style="font-size: 1.1rem; color: hsl(var(--color-text-dark)); display: flex; align-items: center; justify-content: space-between; margin: 0;">
             How fast is your delivery within Dubai?
+            <i class="fas fa-plus faq-icon"></i>
           </h4>
-          <p style="color: hsl(var(--color-text-muted)); line-height: 1.6;">
+          <p class="faq-answer" style="color: hsl(var(--color-text-muted)); line-height: 1.6;">
             Because our warehouse is located directly in Ras Al Khor, we guarantee next-day dispatch for all items currently in stock. Same-day delivery is available for early morning orders.
           </p>
         </div>
         
         <!-- FAQ Item 3 -->
         <div class="faq-item" style="border: 1px solid hsl(var(--color-border)); border-radius: 12px; padding: 24px; background: white;">
-          <h4 style="font-size: 1.1rem; color: hsl(var(--color-text-dark)); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+          <h4 style="font-size: 1.1rem; color: hsl(var(--color-text-dark)); display: flex; align-items: center; justify-content: space-between; margin: 0;">
             Can I visit the warehouse to test the chairs?
+            <i class="fas fa-plus faq-icon"></i>
           </h4>
-          <p style="color: hsl(var(--color-text-muted)); line-height: 1.6;">
+          <p class="faq-answer" style="color: hsl(var(--color-text-muted)); line-height: 1.6;">
             Absolutely! Our direct-to-consumer showroom is attached to our warehouse. You are welcome to visit during our working hours (Mon-Sat, 9 AM - 7 PM) to test any of our ergonomic chairs before purchasing.
           </p>
         </div>
@@ -202,8 +205,9 @@
   </section>
 
   <!-- Contact & Warehouse Location Info (Immersive Map) -->
-  <section class="immersive-map-section">
-    <div class="map-background" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/dubai_warehouse_map.png');"></div>
+  <section class="immersive-map-section" style="position: relative;">
+    <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178550170425!2d55.34217131500962!3d25.188730983897855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6735e23631bb%3A0xc3f24bf78b87e2fc!2sRas%20Al%20Khor%20Industrial%20Area%202%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" class="map-background" style="border:0; filter: grayscale(30%); width: 100%; height: 100%; object-fit: cover;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(90deg, rgba(10,14,23,0.9) 0%, rgba(10,14,23,0.4) 100%); pointer-events: none; z-index: 0;"></div>
     <div class="container">
       <div class="contact-glass-card">
         <span class="editorial-tag">DIRECT WHOLESALE</span>
@@ -275,6 +279,28 @@
   </footer>
 
 <?php wp_footer(); ?>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://wa.me/971501234567" target="_blank" class="floating-whatsapp" aria-label="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Interactive FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+          // Close others
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) otherItem.classList.remove('active');
+          });
+          // Toggle current
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
 
