@@ -228,6 +228,7 @@ img {
   font-size: 24px;
   font-weight: 800;
   color: hsl(var(--color-text-dark));
+  white-space: nowrap;
 }
 
 .logo span {
@@ -258,6 +259,7 @@ img {
 .nav-link {
   font-weight: 500;
   color: hsl(var(--color-text-muted));
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
