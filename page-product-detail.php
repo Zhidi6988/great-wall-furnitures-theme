@@ -26,7 +26,7 @@
         <ul class="nav-links">
           <li><a href="<?php echo home_url('/'); ?>" class="nav-link">Home</a></li>
           <li><a href="<?php echo home_url('/products/'); ?>" class="nav-link">Shop Catalog</a></li>
-          <li><a href="<?php echo home_url('/'); ?>" class="nav-link">Office Planner</a></li>
+          
           <li><a href="<?php echo home_url('/portfolio/'); ?>" class="nav-link">3D Experience</a></li>
           <li><a href="<?php echo home_url('/contact/'); ?>" class="nav-link">Contact</a></li>
           <li><a href="<?php echo home_url('/checkout/'); ?>" class="nav-link">Checkout</a></li>
@@ -41,6 +41,9 @@
             <button class="store-toggle-btn" data-target="home">Home</button>
           </div>
         </div>
+        <button class="icon-btn" onclick="window.location.href='<?php echo home_url('/account/'); ?>'" aria-label="My Account" style="margin-right: 8px;">
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </button>
         <button class="icon-btn" id="cart-btn" aria-label="Shopping Cart">
           <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           <span class="badge-count" id="cart-count">0</span>
@@ -334,3 +337,5 @@
 <?php wp_footer(); ?>
 </body>
 </html>
+
+
