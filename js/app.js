@@ -1732,17 +1732,23 @@ function renderFeaturedProducts(elementId) {
     row2.addEventListener('touchend', () => isHovered2 = false, {passive: true});
   }
 
-  let speed1 = 1.2; // Row 1 moves slightly faster
-  let speed2 = 0.9; // Row 2 moves slightly slower
+  let speed1 = 1.0;
+  let speed2 = 1.0;
 
   function autoScroll() {
-    if (row1 && !isHovered1) {
-      row1.scrollLeft += speed1;
-      if (row1.scrollLeft >= row1.scrollWidth - row1.clientWidth - 1) row1.scrollLeft = 0;
-    }
-    if (row2 && !isHovered2) {
-      row2.scrollLeft += speed2;
-      if (row2.scrollLeft >= row2.scrollWidth - row2.clientWidth - 1) row2.scrollLeft = 0;
+    // Both rows share hover state to prevent alignment drift
+    const isHovered = isHovered1 || isHovered2;
+    
+    if (!isHovered) {
+      if (row1) {
+        row1.scrollLeft += speed1;
+        if (row1.scrollLeft >= row1.scrollWidth - row1.clientWidth - 1) row1.scrollLeft = 0;
+      }
+      if (row2) {
+        // Sync row2 directly to row1 to ensure perfect vertical alignment
+        row2.scrollLeft = row1 ? row1.scrollLeft : (row2.scrollLeft + speed2);
+        if (row2.scrollLeft >= row2.scrollWidth - row2.clientWidth - 1) row2.scrollLeft = 0;
+      }
     }
     window.featuredSliderAnimationId = requestAnimationFrame(autoScroll);
   }
