@@ -272,7 +272,7 @@
       </div>
       <p style="font-size:12px; color:hsl(var(--color-text-muted)); margin-bottom:16px;">⚡ Orders inside Dubai qualify for Next-Day Cash on Delivery.</p>
       <button class="btn btn-primary" onclick="checkout()" style="width:100%; padding: 14px 20px;">
-        Book Cash on Delivery Order
+        Proceed to Secure Checkout
       </button>
     </div>
   </div>
