@@ -1418,7 +1418,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (splash) {
     setTimeout(() => {
       splash.classList.add('hidden');
-    }, 1000); // Show splash for 1s initially
+    }, 800);
   }
 
   // Render Homepage Products if on index.html
@@ -2827,3 +2827,28 @@ document.addEventListener("DOMContentLoaded", () => {
   initTiltEffect();
 });
 
+
+// Review Verification Logic (Mockup)
+document.addEventListener('DOMContentLoaded', () => {
+  const verifyBtn = document.getElementById('btn-verify-purchase');
+  if (verifyBtn) {
+    verifyBtn.addEventListener('click', () => {
+      const orderId = document.getElementById('verify-order-id').value;
+      const email = document.getElementById('verify-email').value;
+      
+      if (!orderId || !email) {
+        alert('Please enter both your Order ID and Email Address to verify your purchase.');
+        return;
+      }
+
+      verifyBtn.innerText = 'Verifying with Database...';
+      verifyBtn.style.opacity = '0.7';
+      
+      // Simulate API call
+      setTimeout(() => {
+        document.getElementById('review-verification-form').style.display = 'none';
+        document.getElementById('review-submission-form').style.display = 'block';
+      }, 1200);
+    });
+  }
+});
