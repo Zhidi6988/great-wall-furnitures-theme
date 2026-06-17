@@ -56,6 +56,87 @@
     </div>
   </section>
 
+  <!-- Related Products / Upselling Section (UI Mockup) -->
+  <section class="section-padding" style="background-color: hsl(var(--color-bg-light)); border-top: 1px solid hsl(var(--color-border));">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px;">
+        <div>
+          <span style="color: hsl(var(--color-primary)); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Complete Your Setup</span>
+          <h2 style="font-size: 2rem; color: hsl(var(--color-text-dark)); margin-top: 8px;">Frequently Bought Together</h2>
+        </div>
+        <a href="<?php echo home_url('/products/'); ?>" class="btn btn-secondary" style="display: none;">View All</a>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px;">
+        
+        <!-- Related Product Card 1 -->
+        <div class="product-card">
+          <div class="product-image-container" style="background-color: white; padding: 20px;">
+            <div class="product-badge">Top Seller</div>
+            <img src="<?php echo get_template_directory_uri(); ?>/images/prod_sovereign_chair_1780577397204.png" alt="Ergonomic Mesh Chair" style="width: 100%; height: 200px; object-fit: contain; mix-blend-mode: multiply;">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+            <h3 class="product-title">Ergonomic Mesh Chair Pro</h3>
+            <div class="product-price">
+              <span class="price-current">AED 349</span>
+              <span class="price-original">AED 499</span>
+            </div>
+            <button class="btn btn-primary add-to-cart-btn" style="width: 100%; margin-top: auto; justify-content: center;">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Related Product Card 2 -->
+        <div class="product-card">
+          <div class="product-image-container" style="background-color: white; padding: 20px;">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/prod_zenith_desk_1780577410628.png" alt="L-Shape Manager Desk" style="width: 100%; height: 200px; object-fit: contain; mix-blend-mode: multiply;">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+            <h3 class="product-title">L-Shape Manager Desk</h3>
+            <div class="product-price">
+              <span class="price-current">AED 899</span>
+            </div>
+            <button class="btn btn-primary add-to-cart-btn" style="width: 100%; margin-top: auto; justify-content: center;">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Related Product Card 3 -->
+        <div class="product-card">
+          <div class="product-image-container" style="background-color: white; padding: 20px;">
+            <div class="product-badge" style="background: hsl(var(--color-bg-dark));">Heavy Duty</div>
+            <img src="<?php echo get_template_directory_uri(); ?>/images/prod_titan_shelf_1780577423430.png" alt="5-Tier Metal Shelf" style="width: 100%; height: 200px; object-fit: contain; mix-blend-mode: multiply;">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+            <h3 class="product-title">5-Tier Metal Storage Shelf</h3>
+            <div class="product-price">
+              <span class="price-current">AED 210</span>
+              <span class="price-original">AED 250</span>
+            </div>
+            <button class="btn btn-primary add-to-cart-btn" style="width: 100%; margin-top: auto; justify-content: center;">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Related Product Card 4 -->
+        <div class="product-card">
+          <div class="product-image-container" style="background-color: white; padding: 20px;">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/prod_metro_chair_1780643241235.png" alt="Executive Leather Chair" style="width: 100%; height: 200px; object-fit: contain; mix-blend-mode: multiply;">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="product-info" style="display: flex; flex-direction: column; flex-grow: 1;">
+            <h3 class="product-title">Executive Leather Chair</h3>
+            <div class="product-price">
+              <span class="price-current">AED 550</span>
+            </div>
+            <button class="btn btn-primary add-to-cart-btn" style="width: 100%; margin-top: auto; justify-content: center;">Add to Cart</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Footer Section -->
   <footer class="footer">
     <div class="container">
@@ -152,9 +233,3 @@
 <?php wp_footer(); ?>
 </body>
 </html>
-
-
-
-
-
-
