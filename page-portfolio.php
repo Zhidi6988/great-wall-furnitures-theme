@@ -16,7 +16,7 @@
 </head>
 <body>
   <div id="splash-screen">
-    <img src="https://greatwallfurnitures.com/wp-content/uploads/2020/02/Great-Wall-logo-reszie-b.png" alt="Loading">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/great_wall_logo.png" alt="Loading">
   </div><script>
   function toggleThemeInline() {
     let current = document.documentElement.getAttribute('data-theme');
@@ -152,5 +152,8 @@
 <?php wp_footer(); ?>
 </body>
 </html>
+
+
+
 
 

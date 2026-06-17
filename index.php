@@ -13,7 +13,7 @@
 <body>
   <!-- Cinematic Splash Screen -->
   <div id="splash-screen">
-    <img src="https://greatwallfurnitures.com/wp-content/uploads/2020/02/Great-Wall-logo-reszie-b.png" alt="Loading">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/great_wall_logo.png" alt="Loading">
   </div>
 
   <!-- Top Navigation Header -->
@@ -29,8 +29,9 @@
           <li><a href="<?php echo home_url('/'); ?>" class="nav-link active">Home</a></li>
           <li><a href="<?php echo home_url('/products/'); ?>" class="nav-link">Shop Catalog</a></li>
           <li><a href="#planner-section" class="nav-link">Office Planner</a></li>
-          <li><a href="<?php echo home_url('/portfolio/'); ?>" class="nav-link">Interactive Experience</a></li>
+          <li><a href="<?php echo home_url('/portfolio/'); ?>" class="nav-link">3D Experience</a></li>
           <li><a href="<?php echo home_url('/contact/'); ?>" class="nav-link">Contact</a></li>
+          <li><a href="<?php echo home_url('/checkout/'); ?>" class="nav-link">Checkout</a></li>
         </ul>
       </nav>
 
@@ -378,5 +379,8 @@
 <?php wp_footer(); ?>
 </body>
 </html>
+
+
+
 
 

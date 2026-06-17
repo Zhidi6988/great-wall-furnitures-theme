@@ -13,7 +13,7 @@
 </head>
 <body>
   <div id="splash-screen">
-    <img src="https://greatwallfurnitures.com/wp-content/uploads/2020/02/Great-Wall-logo-reszie-b.png" alt="Loading">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/great_wall_logo.png" alt="Loading">
   </div>
   <!-- Top Navigation Header -->
   <header class="header transparent">
@@ -28,8 +28,9 @@
           <li><a href="<?php echo home_url('/'); ?>" class="nav-link">Home</a></li>
           <li><a href="<?php echo home_url('/products/'); ?>" class="nav-link">Shop Catalog</a></li>
           <li><a href="<?php echo home_url('/'); ?>" class="nav-link">Office Planner</a></li>
-          <li><a href="<?php echo home_url('/portfolio/'); ?>" class="nav-link">Interactive Experience</a></li>
+          <li><a href="<?php echo home_url('/portfolio/'); ?>" class="nav-link">3D Experience</a></li>
           <li><a href="<?php echo home_url('/contact/'); ?>" class="nav-link active">Contact</a></li>
+          <li><a href="<?php echo home_url('/checkout/'); ?>" class="nav-link">Checkout</a></li>
         </ul>
       </nav>
 
@@ -205,9 +206,8 @@
   </section>
 
   <!-- Contact & Warehouse Location Info (Immersive Map) -->
-  <section class="immersive-map-section" style="position: relative;">
-    <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178550170425!2d55.34217131500962!3d25.188730983897855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6735e23631bb%3A0xc3f24bf78b87e2fc!2sRas%20Al%20Khor%20Industrial%20Area%202%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" class="map-background" style="border:0; filter: grayscale(30%); width: 100%; height: 100%; object-fit: cover;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-    <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(90deg, rgba(10,14,23,0.9) 0%, rgba(10,14,23,0.4) 100%); pointer-events: none; z-index: 0;"></div>
+  <section class="immersive-map-section">
+    <div class="map-background" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/dubai_warehouse_map.png');"></div>
     <div class="container">
       <div class="contact-glass-card">
         <span class="editorial-tag">DIRECT WHOLESALE</span>
@@ -303,6 +303,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 

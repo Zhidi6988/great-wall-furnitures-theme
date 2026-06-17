@@ -13,7 +13,7 @@
 </head>
 <body>
   <div id="splash-screen">
-    <img src="https://greatwallfurnitures.com/wp-content/uploads/2020/02/Great-Wall-logo-reszie-b.png" alt="Loading">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/great_wall_logo.png" alt="Loading">
   </div>
   <!-- Top Navigation Header -->
   <header class="header">
@@ -28,8 +28,9 @@
           <li><a href="<?php echo home_url('/'); ?>" class="nav-link">Home</a></li>
           <li><a href="<?php echo home_url('/products/'); ?>" class="nav-link">Shop Catalog</a></li>
           <li><a href="<?php echo home_url('/'); ?>" class="nav-link">Office Planner</a></li>
-          <li><a href="<?php echo home_url('/portfolio/'); ?>" class="nav-link">Interactive Experience</a></li>
+          <li><a href="<?php echo home_url('/portfolio/'); ?>" class="nav-link">3D Experience</a></li>
           <li><a href="<?php echo home_url('/contact/'); ?>" class="nav-link">Contact</a></li>
+          <li><a href="<?php echo home_url('/checkout/'); ?>" class="nav-link">Checkout</a></li>
         </ul>
       </nav>
 
@@ -75,13 +76,57 @@
             </div>
 
             <h2 style="font-size: 20px; margin-top: 40px; margin-bottom: 20px; border-bottom: 1px solid hsl(var(--color-border)); padding-bottom: 10px;">Payment Method</h2>
-            <div style="padding: 16px; border: 1px solid hsl(var(--color-primary)); background-color: hsl(var(--color-primary) / 0.05); border-radius: var(--radius-sm); display: flex; align-items: center; gap: 12px;">
-              <input type="radio" id="pay-cod" name="payment" checked style="accent-color: hsl(var(--color-primary)); transform: scale(1.2);">
-              <label for="pay-cod" style="font-weight: 600; cursor: pointer;">Cash on Delivery (COD)</label>
+            
+            <!-- COD Option -->
+            <div class="payment-option" id="option-cod" style="padding: 16px; border: 1px solid hsl(var(--color-primary)); background-color: hsl(var(--color-primary) / 0.05); border-radius: var(--radius-sm); margin-bottom: 12px; cursor: pointer; transition: all 0.3s ease;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <input type="radio" id="pay-cod" name="payment" value="cod" checked style="accent-color: hsl(var(--color-primary)); transform: scale(1.2); pointer-events: none;">
+                <label for="pay-cod" style="font-weight: 600; cursor: pointer; pointer-events: none;">Cash on Delivery (COD)</label>
+              </div>
+              <p style="font-size: 13px; color: hsl(var(--color-text-muted)); margin-top: 10px; margin-left: 28px;">
+                Pay via cash or card terminal upon delivery. Zero upfront fees.
+              </p>
             </div>
-            <p style="font-size: 13px; color: hsl(var(--color-text-muted)); margin-top: 10px; margin-bottom: 30px;">
-              Pay via cash or card terminal upon delivery. Zero upfront fees.
-            </p>
+
+            <!-- Online Payment Option -->
+            <div class="payment-option" id="option-card" style="padding: 16px; border: 1px solid hsl(var(--color-border)); border-radius: var(--radius-sm); margin-bottom: 30px; cursor: pointer; transition: all 0.3s ease;">
+              <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <input type="radio" id="pay-card" name="payment" value="card" style="accent-color: hsl(var(--color-primary)); transform: scale(1.2); pointer-events: none;">
+                  <label for="pay-card" style="font-weight: 600; cursor: pointer; pointer-events: none;">Credit / Debit Card</label>
+                </div>
+                <div style="display: flex; gap: 6px; color: hsl(var(--color-text-muted)); font-size: 20px;">
+                  <i class="fab fa-cc-visa"></i>
+                  <i class="fab fa-cc-mastercard"></i>
+                  <i class="fab fa-cc-amex"></i>
+                </div>
+              </div>
+              
+              <!-- Mock Credit Card Form (Hidden by default) -->
+              <div id="card-form-container" style="display: none; margin-top: 20px; margin-left: 28px; padding-top: 20px; border-top: 1px solid hsl(var(--color-border));">
+                <div style="margin-bottom: 16px;">
+                  <label for="cc-name" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;">Name on Card</label>
+                  <input type="text" id="cc-name" placeholder="John Doe" style="width: 100%; padding: 10px; border: 1px solid hsl(var(--color-border)); border-radius: var(--radius-sm); font-size: 14px;">
+                </div>
+                <div style="margin-bottom: 16px;">
+                  <label for="cc-number" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;">Card Number</label>
+                  <div style="position: relative;">
+                    <input type="text" id="cc-number" placeholder="0000 0000 0000 0000" maxlength="19" style="width: 100%; padding: 10px 10px 10px 36px; border: 1px solid hsl(var(--color-border)); border-radius: var(--radius-sm); font-size: 14px;">
+                    <i class="far fa-credit-card" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: hsl(var(--color-text-muted));"></i>
+                  </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div>
+                    <label for="cc-exp" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;">Expiry (MM/YY)</label>
+                    <input type="text" id="cc-exp" placeholder="MM/YY" maxlength="5" style="width: 100%; padding: 10px; border: 1px solid hsl(var(--color-border)); border-radius: var(--radius-sm); font-size: 14px;">
+                  </div>
+                  <div>
+                    <label for="cc-cvc" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;">CVC</label>
+                    <input type="text" id="cc-cvc" placeholder="123" maxlength="4" style="width: 100%; padding: 10px; border: 1px solid hsl(var(--color-border)); border-radius: var(--radius-sm); font-size: 14px;">
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <button type="submit" id="place-order-btn" class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 18px; justify-content: center;">Place Order</button>
           </form>
@@ -138,9 +183,70 @@
   </div>
 
   <script src="<?php echo get_template_directory_uri(); ?>/js/app.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const optionCod = document.getElementById('option-cod');
+      const optionCard = document.getElementById('option-card');
+      const radioCod = document.getElementById('pay-cod');
+      const radioCard = document.getElementById('pay-card');
+      const cardForm = document.getElementById('card-form-container');
+
+      function updatePaymentUI() {
+        if (radioCod.checked) {
+          optionCod.style.borderColor = 'hsl(var(--color-primary))';
+          optionCod.style.backgroundColor = 'hsl(var(--color-primary) / 0.05)';
+          optionCard.style.borderColor = 'hsl(var(--color-border))';
+          optionCard.style.backgroundColor = 'transparent';
+          cardForm.style.display = 'none';
+        } else {
+          optionCard.style.borderColor = 'hsl(var(--color-primary))';
+          optionCard.style.backgroundColor = 'hsl(var(--color-primary) / 0.05)';
+          optionCod.style.borderColor = 'hsl(var(--color-border))';
+          optionCod.style.backgroundColor = 'transparent';
+          cardForm.style.display = 'block';
+        }
+      }
+
+      optionCod.addEventListener('click', () => {
+        radioCod.checked = true;
+        updatePaymentUI();
+      });
+
+      optionCard.addEventListener('click', () => {
+        radioCard.checked = true;
+        updatePaymentUI();
+      });
+      
+      // Auto-format card number
+      const ccNum = document.getElementById('cc-number');
+      if(ccNum) {
+        ccNum.addEventListener('input', function (e) {
+          let value = e.target.value.replace(/\D/g, '').substring(0,16);
+          let formattedValue = value != '' ? value.match(/.{1,4}/g).join(' ') : '';
+          e.target.value = formattedValue;
+        });
+      }
+      
+      // Auto-format expiry
+      const ccExp = document.getElementById('cc-exp');
+      if(ccExp) {
+        ccExp.addEventListener('input', function (e) {
+          let value = e.target.value.replace(/\D/g, '').substring(0,4);
+          if (value.length >= 2) {
+            value = value.substring(0,2) + '/' + value.substring(2);
+          }
+          e.target.value = value;
+        });
+      }
+    });
+  </script>
 <?php wp_footer(); ?>
 </body>
 </html>
+
+
+
 
 
 
