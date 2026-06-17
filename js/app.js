@@ -1925,7 +1925,7 @@ function updateCartUI() {
     drawerFooter.style.display = 'block';
     const checkoutBtn = drawerFooter.querySelector(".btn");
     if (checkoutBtn) {
-      checkoutBtn.innerHTML = `Book Cash on Delivery Order`;
+      checkoutBtn.innerHTML = `Proceed to Secure Checkout`;
       checkoutBtn.style.opacity = '1';
       checkoutBtn.disabled = false;
     }
@@ -1984,30 +1984,15 @@ function checkout() {
   // Simulate sleek processing
   const checkoutBtn = drawerFooter.querySelector(".btn");
   if (checkoutBtn) {
-    checkoutBtn.innerHTML = `<svg class="svg-icon pulse" viewBox="0 0 24 24" style="width: 20px; height: 20px; animation: spin 1s linear infinite;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Processing Securely...`;
+    checkoutBtn.innerHTML = `<svg class="svg-icon pulse" viewBox="0 0 24 24" style="width: 20px; height: 20px; animation: spin 1s linear infinite;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Securely Redirecting...`;
     checkoutBtn.style.opacity = '0.8';
     checkoutBtn.disabled = true;
   }
   
   setTimeout(() => {
-    // Empty the cart
-    cart.length = 0;
-    saveCart();
-    
-    // Show sleek success state
-    drawerContent.innerHTML = `
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 40px 20px;">
-        <div style="width: 64px; height: 64px; background-color: hsl(var(--color-success) / 0.1); color: hsl(var(--color-success)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-        </div>
-        <h3 style="font-family: 'Outfit', sans-serif; font-size: 24px; color: hsl(var(--color-text-dark)); margin-bottom: 8px;">Order Confirmed!</h3>
-        <p style="color: hsl(var(--color-text-muted)); line-height: 1.6; margin-bottom: 24px;">Your items have been reserved and will be dispatched within 24 hours via Next-Day Cash on Delivery.</p>
-        <button class="btn btn-outline" onclick="toggleCartDrawer(); updateCartUI();" style="width: 100%;">Continue Browsing</button>
-      </div>
-    `;
-    
-    drawerFooter.style.display = 'none';
-  }, 1800);
+    const baseUrl = window.siteUrl ? window.siteUrl : '';
+    window.location.href = `${baseUrl}/checkout/`;
+  }, 600);
 }
 
 // Setup Checkout Page Logic
