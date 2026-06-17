@@ -137,6 +137,107 @@
     </div>
   </section>
 
+  <!-- Verified Dynamic Review System Section -->
+  <section class="section-padding" style="background-color: hsl(var(--color-bg-base)); border-top: 1px solid hsl(var(--color-border));">
+    <div class="container" style="max-width: 900px;">
+      
+      <!-- Review Header & Summary -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
+        <div>
+          <h2 style="font-size: 2rem; color: hsl(var(--color-text-dark)); margin-bottom: 8px;">Leave a Review</h2>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="font-size: 2.5rem; font-weight: 700; color: hsl(var(--color-text-dark));">4.8</div>
+            <div>
+              <div style="color: #F59E0B; font-size: 1.2rem;">★★★★★</div>
+              <div style="font-size: 0.9rem; color: hsl(var(--color-text-muted));">Based on 24 Verified Purchases</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Verification Gate Trigger -->
+        <div style="background-color: hsl(var(--color-bg-light)); padding: 20px; border-radius: var(--radius-md); border: 1px solid hsl(var(--color-border)); min-width: 300px;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: hsl(var(--color-text-dark));">Write a Review</h3>
+          <p style="font-size: 0.85rem; color: hsl(var(--color-text-muted)); margin-bottom: 16px;">To prevent fake reviews, we only accept feedback from customers who have purchased this product.</p>
+          
+          <!-- Verification Form -->
+          <div id="review-verification-form">
+            <div style="margin-bottom: 12px;">
+              <input type="text" id="verify-order-id" placeholder="Order ID (e.g. GW-10294)" class="form-input" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
+            </div>
+            <div style="margin-bottom: 12px;">
+              <input type="email" id="verify-email" placeholder="Email Address" class="form-input" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
+            </div>
+            <button class="btn btn-primary" id="btn-verify-purchase" style="width: 100%;">Verify Purchase</button>
+          </div>
+
+          <!-- Actual Review Form (Hidden initially) -->
+          <div id="review-submission-form" style="display: none;">
+            <div style="padding: 10px; background-color: #DEF7EC; color: #03543F; border-radius: 4px; font-size: 0.85rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+              <span>✔</span> <span>Purchase Verified! You can now review this item.</span>
+            </div>
+            <div style="margin-bottom: 12px; color: #F59E0B; font-size: 1.5rem; cursor: pointer;">
+              ☆ ☆ ☆ ☆ ☆
+            </div>
+            <div style="margin-bottom: 12px;">
+              <textarea placeholder="Tell us about the quality, delivery, and your overall experience..." class="form-input" rows="3" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc;"></textarea>
+            </div>
+            <button class="btn btn-secondary" style="width: 100%; background-color: hsl(var(--color-text-dark)); color: white;">Submit Review</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Customer Reviews Feed -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        
+        <!-- Mock Review 1 -->
+        <div style="padding: 24px; background-color: white; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid hsl(var(--color-border));">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-color: hsl(var(--color-primary) / 0.1); color: hsl(var(--color-primary)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem;">
+                A
+              </div>
+              <div>
+                <div style="font-weight: 700; color: hsl(var(--color-text-dark));">Ahmed T.</div>
+                <div style="font-size: 0.8rem; color: #059669; display: flex; align-items: center; gap: 4px; margin-top: 2px;">
+                  <span>✔</span> Verified B2B Buyer
+                </div>
+              </div>
+            </div>
+            <div style="color: #F59E0B; font-size: 1rem;">★★★★★</div>
+          </div>
+          <p style="color: hsl(var(--color-text-body)); font-size: 0.95rem; line-height: 1.6;">
+            "We ordered 50 of these ergonomic chairs for our new corporate office in Dubai Internet City. The quality is exceptional for the wholesale price. Delivery was handled smoothly the very next day by the Great Wall logistics team. Highly recommended for bulk setups."
+          </p>
+          <div style="margin-top: 12px; font-size: 0.8rem; color: hsl(var(--color-text-muted));">Posted 2 weeks ago</div>
+        </div>
+
+        <!-- Mock Review 2 -->
+        <div style="padding: 24px; background-color: white; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid hsl(var(--color-border));">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-color: hsl(var(--color-primary) / 0.1); color: hsl(var(--color-primary)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem;">
+                S
+              </div>
+              <div>
+                <div style="font-weight: 700; color: hsl(var(--color-text-dark));">Sarah M.</div>
+                <div style="font-size: 0.8rem; color: #059669; display: flex; align-items: center; gap: 4px; margin-top: 2px;">
+                  <span>✔</span> Verified Buyer
+                </div>
+              </div>
+            </div>
+            <div style="color: #F59E0B; font-size: 1rem;">★★★★☆</div>
+          </div>
+          <p style="color: hsl(var(--color-text-body)); font-size: 0.95rem; line-height: 1.6;">
+            "Bought this for my home office setup. The assembly was straightforward and the lumbar support is exactly what I needed for long hours. Only taking off one star because the box was slightly damaged, but the chair inside was perfectly fine."
+          </p>
+          <div style="margin-top: 12px; font-size: 0.8rem; color: hsl(var(--color-text-muted));">Posted 1 month ago</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Footer Section -->
   <footer class="footer">
     <div class="container">
