@@ -53,7 +53,7 @@
 
   <!-- Scrollable Overlay Content -->
   <main class="scroll-container">
-    <a href="<?php echo home_url(); ?>" style="position: fixed; top: 20px; left: 20px; z-index: 9999; color: var(--color-text-light); text-decoration: none; font-weight: 600; background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(4px); font-family: var(--font-body); display: flex; align-items: center; gap: 8px;">
+    <a href="<?php echo home_url('/'); ?>" style="position: fixed; top: 20px; left: 20px; z-index: 9999; color: var(--color-text-light); text-decoration: none; font-weight: 600; background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(4px); font-family: var(--font-body); display: flex; align-items: center; gap: 8px;">
       <i class="fa-solid fa-arrow-left"></i> Back to Home
     </a>
     
