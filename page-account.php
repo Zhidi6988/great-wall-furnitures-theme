@@ -247,11 +247,12 @@
       <aside>
         <div class="account-sidebar">
           <div style="text-align: center; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid hsl(var(--color-border));">
-            <div style="width: 64px; height: 64px; background: hsl(var(--color-primary)); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 12px;">
+            <div id="profile-initials" style="width: 64px; height: 64px; background: hsl(var(--color-primary)); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 12px;">
               AA
             </div>
-            <h3 style="color: hsl(var(--color-text-dark)); font-size: 1.1rem;">Ali Al-Maktoum</h3>
-            <p style="color: hsl(var(--color-text-muted)); font-size: 0.85rem;">B2B Wholesale Account</p>
+            <h3 id="profile-display-name" style="color: hsl(var(--color-text-dark)); font-size: 1.1rem;">Ali Al-Maktoum</h3>
+            <p id="profile-display-email" style="color: hsl(var(--color-text-muted)); font-size: 0.85rem;">ali@example.com</p>
+            <p id="profile-display-phone" style="color: hsl(var(--color-text-muted)); font-size: 0.85rem;">+971 50 123 4567</p>
           </div>
           <ul class="account-nav">
             <li><a href="#dashboard" class="tab-link active" data-target="tab-dashboard"><i class="fas fa-th-large" style="width: 20px;"></i> Dashboard</a></li>
@@ -269,7 +270,7 @@
         
         <!-- DASHBOARD TAB -->
         <div id="tab-dashboard" class="account-tab active">
-          <h1 style="font-size: 2rem; color: hsl(var(--color-text-dark)); margin-bottom: 8px;">My Dashboard</h1>
+          <h1 id="dashboard-welcome" style="font-size: 2rem; color: hsl(var(--color-text-dark)); margin-bottom: 8px;">My Dashboard</h1>
           <p style="color: hsl(var(--color-text-muted)); margin-bottom: 30px;">Track your deliveries, view past wholesale orders, and request invoices.</p>
 
           <!-- Active Delivery Tracker -->
