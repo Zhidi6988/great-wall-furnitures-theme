@@ -61,9 +61,15 @@ body {
 
 /* Section Specific Positioning */
 .header-section {
-  min-height: 20vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  min-height: auto;
   align-items: flex-start;
-  padding-top: 100px;
+  padding-top: 30px;
+  pointer-events: none;
 }
 
 .header--container h2 {
@@ -78,6 +84,7 @@ body {
 .cam-view-1 {
   align-items: center;
   justify-content: space-between;
+  padding-top: 50px;
 }
 
 .hero--container {
