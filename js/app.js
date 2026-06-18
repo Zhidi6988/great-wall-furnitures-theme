@@ -2843,3 +2843,239 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// --- Auth Portal Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+  const authState = localStorage.getItem('gw_auth_state');
+  const gwUsersDb = JSON.parse(localStorage.getItem('gw_users_db') || '{}');
+  const activeUser = JSON.parse(localStorage.getItem('gw_auth_user') || 'null');
+  
+  // Create Auth Modal HTML with Forms
+  const authModalHTML = `
+    <div id="auth-portal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); z-index: 99999; align-items: center; justify-content: center; overflow-y: auto; padding: 20px 0;">
+      <div style="background: white; padding: 40px; border-radius: 12px; max-width: 450px; width: 90%; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); position: relative; transform: translateY(20px); animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;">
+        <style>
+          @keyframes modalSlideUp { to { transform: translateY(0); } }
+          .auth-input { width: 100%; padding: 12px; margin-bottom: 16px; border: 1px solid hsl(var(--color-border)); border-radius: 6px; font-family: 'Inter', sans-serif; }
+          .auth-view { display: none; }
+          .auth-view.active { display: block; }
+          .text-link { color: hsl(var(--color-primary)); cursor: pointer; text-decoration: underline; font-weight: bold; }
+        </style>
+        
+        <div style="text-align: center;">
+          <img src="${window.themeUrl}/images/logo_piloteer_transparent.png" alt="Logo" style="height: 50px; margin-bottom: 20px;">
+          <h2 style="font-size: 1.8rem; color: hsl(var(--color-text-dark)); margin-bottom: 10px;" id="auth-title">B2B Wholesale Portal</h2>
+          <p style="color: hsl(var(--color-text-muted)); margin-bottom: 30px;" id="auth-subtitle">Sign in or apply to access bulk pricing.</p>
+        </div>
+
+        <!-- Initial View -->
+        <div id="auth-view-initial" class="auth-view active" style="text-align: center;">
+          <button id="btn-show-login" class="btn btn-primary" style="width: 100%; margin-bottom: 12px; padding: 14px;">Sign In</button>
+          <button id="btn-show-register" class="btn btn-outline" style="width: 100%; margin-bottom: 24px; padding: 14px;">Apply for Account</button>
+          
+          <div style="position: relative; text-align: center; margin-bottom: 24px;">
+            <hr style="border: 0; border-top: 1px solid hsl(var(--color-border));">
+            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 0 10px; color: hsl(var(--color-text-muted)); font-size: 0.9rem;">OR</span>
+          </div>
+          
+          <button id="btn-auth-guest" class="btn" style="background: hsl(var(--color-bg-light)); color: hsl(var(--color-text-dark)); width: 100%; padding: 14px; border: 1px solid hsl(var(--color-border)); transition: background 0.2s;">Browse as Guest</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="auth-view-login" class="auth-view">
+          <form id="form-login">
+            <input type="email" id="login-email" class="auth-input" placeholder="Email Address" required>
+            <input type="password" id="login-password" class="auth-input" placeholder="Password" required>
+            <p id="login-error" style="color: red; font-size: 14px; display: none; margin-top: -10px; margin-bottom: 15px;"></p>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">Sign In</button>
+            <p style="text-align: center; margin-top: 20px; font-size: 14px;">Don't have an account? <span class="text-link" id="link-to-register">Apply here</span></p>
+          </form>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="auth-view-register" class="auth-view">
+          <form id="form-register">
+            <input type="text" id="reg-name" class="auth-input" placeholder="Full Name" required>
+            <input type="tel" id="reg-phone" class="auth-input" placeholder="Phone Number" required>
+            <input type="email" id="reg-email" class="auth-input" placeholder="Email Address" required>
+            <input type="password" id="reg-password" class="auth-input" placeholder="Create Password" required>
+            <p id="reg-error" style="color: red; font-size: 14px; display: none; margin-top: -10px; margin-bottom: 15px;"></p>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">Create Account</button>
+            <p style="text-align: center; margin-top: 20px; font-size: 14px;">Already have an account? <span class="text-link" id="link-to-login">Sign In</span></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  `;
+  
+  document.body.insertAdjacentHTML('beforeend', authModalHTML);
+  const authPortal = document.getElementById('auth-portal-overlay');
+  const authTitle = document.getElementById('auth-title');
+  const authSubtitle = document.getElementById('auth-subtitle');
+  
+  const viewInitial = document.getElementById('auth-view-initial');
+  const viewLogin = document.getElementById('auth-view-login');
+  const viewRegister = document.getElementById('auth-view-register');
+
+  function switchView(viewId) {
+    document.querySelectorAll('.auth-view').forEach(el => el.classList.remove('active'));
+    document.getElementById(viewId).classList.add('active');
+  }
+
+  // 1. Show portal logic
+  if (!authState) {
+    authPortal.style.display = 'flex';
+  }
+  
+  // Navigation between views
+  document.getElementById('btn-show-login').addEventListener('click', () => {
+    authTitle.innerText = "Sign In";
+    authSubtitle.innerText = "Welcome back to Great Wall Furnitures.";
+    switchView('auth-view-login');
+  });
+  
+  document.getElementById('btn-show-register').addEventListener('click', () => {
+    authTitle.innerText = "Create Account";
+    authSubtitle.innerText = "Join to access exclusive wholesale pricing.";
+    switchView('auth-view-register');
+  });
+
+  document.getElementById('link-to-register').addEventListener('click', () => {
+    authTitle.innerText = "Create Account";
+    switchView('auth-view-register');
+  });
+
+  document.getElementById('link-to-login').addEventListener('click', () => {
+    authTitle.innerText = "Sign In";
+    switchView('auth-view-login');
+  });
+
+  // Handle Login Form Submit
+  document.getElementById('form-login').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const errorEl = document.getElementById('login-error');
+
+    if (gwUsersDb[email] && gwUsersDb[email].password === password) {
+      // Success
+      localStorage.setItem('gw_auth_state', 'logged_in');
+      localStorage.setItem('gw_auth_user', JSON.stringify(gwUsersDb[email]));
+      authPortal.style.display = 'none';
+      window.location.reload();
+    } else {
+      errorEl.innerText = "Invalid email or password.";
+      errorEl.style.display = 'block';
+    }
+  });
+
+  // Handle Registration Form Submit
+  document.getElementById('form-register').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('reg-name').value.trim();
+    const phone = document.getElementById('reg-phone').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const password = document.getElementById('reg-password').value;
+    const errorEl = document.getElementById('reg-error');
+
+    if (gwUsersDb[email]) {
+      errorEl.innerText = "An account with this email already exists.";
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    const newUser = { name, phone, email, password };
+    gwUsersDb[email] = newUser;
+    localStorage.setItem('gw_users_db', JSON.stringify(gwUsersDb));
+    
+    // Auto-login after registration
+    localStorage.setItem('gw_auth_state', 'logged_in');
+    localStorage.setItem('gw_auth_user', JSON.stringify(newUser));
+    authPortal.style.display = 'none';
+    window.location.reload();
+  });
+  
+  // Handle Guest Click
+  const guestBtn = document.getElementById('btn-auth-guest');
+  guestBtn.addEventListener('click', () => {
+    localStorage.setItem('gw_auth_state', 'guest');
+    authPortal.style.display = 'none';
+  });
+  guestBtn.addEventListener('mouseenter', () => guestBtn.style.background = 'hsl(var(--color-border))');
+  guestBtn.addEventListener('mouseleave', () => guestBtn.style.background = 'hsl(var(--color-bg-light))');
+  
+  // 2. Gate the Account Icon
+  const navUserBtn = document.querySelector('button[onclick*="/account/"]');
+  if (navUserBtn) {
+    if (authState !== 'logged_in') {
+      navUserBtn.onclick = (e) => {
+        e.preventDefault();
+        authTitle.innerText = "Sign In Required";
+        authSubtitle.innerText = "You must be signed in to access the Account Dashboard.";
+        switchView('auth-view-initial');
+        authPortal.style.display = 'flex';
+      };
+    }
+  }
+
+  // 3. Intercept Checkout (if guest wants to buy)
+  if (typeof window.checkout === 'function') {
+    const originalCheckout = window.checkout;
+    window.checkout = function() {
+      if (localStorage.getItem('gw_auth_state') !== 'logged_in') {
+        if (typeof toggleCartDrawer === 'function') toggleCartDrawer(); // Close cart
+        authTitle.innerText = "Sign In Required to Order";
+        authSubtitle.innerText = "Please sign in or create an account to proceed with your purchase.";
+        switchView('auth-view-initial');
+        authPortal.style.display = 'flex';
+        return;
+      }
+      originalCheckout();
+    };
+  }
+
+  // 4. Sign Out Logic
+  const signOutLinks = Array.from(document.querySelectorAll('a')).filter(a => a.innerText.includes('Sign Out'));
+  signOutLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (confirm("Are you sure you want to sign out of your account?")) {
+        localStorage.removeItem('gw_auth_state'); // Clear state
+        localStorage.removeItem('gw_auth_user'); // Clear active session, but keep gw_users_db intact!
+        
+        // Redirect to homepage
+        const baseUrl = window.siteUrl ? window.siteUrl : '';
+        if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+          window.location.reload();
+        } else {
+          window.location.href = baseUrl ? baseUrl + '/' : 'index.html';
+        }
+      }
+    });
+  });
+
+  // 5. Hydrate Account Dashboard
+  if (window.location.href.includes('account') && activeUser) {
+    // Inject active user data into the dashboard
+    const profileNameDisplay = document.getElementById('profile-display-name');
+    const profileEmailDisplay = document.getElementById('profile-display-email');
+    const profilePhoneDisplay = document.getElementById('profile-display-phone');
+    
+    // We will find these elements in page-account.php in the next step
+    if (profileNameDisplay) profileNameDisplay.innerText = activeUser.name;
+    if (profileEmailDisplay) profileEmailDisplay.innerText = activeUser.email;
+    if (profilePhoneDisplay) profilePhoneDisplay.innerText = activeUser.phone || 'No phone set';
+    
+    const profileInitials = document.getElementById('profile-initials');
+    if (profileInitials) {
+      profileInitials.innerText = activeUser.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+    }
+    
+    // Also change the header greeting
+    const welcomeHeader = document.getElementById('dashboard-welcome');
+    if (welcomeHeader) {
+      welcomeHeader.innerText = "Welcome back, " + activeUser.name.split(' ')[0] + "!";
+    }
+  }
+});
+
