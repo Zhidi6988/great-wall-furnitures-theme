@@ -15,9 +15,7 @@
 <?php wp_head(); ?>
 </head>
 <body>
-  <div id="splash-screen">
-    <img src="<?php echo get_template_directory_uri(); ?>/images/great_wall_logo.png" alt="Loading">
-  </div><script>
+<script>
   function toggleThemeInline() {
     let current = document.documentElement.getAttribute('data-theme');
     if (!current) current = localStorage.getItem('theme') || 'dark';
@@ -66,7 +64,7 @@
 
     <section class="section header-section">
       <div class="header--container">
-        <h2>Great Wall</h2>
+        <img src="<?php echo get_template_directory_uri(); ?>/images/great_wall_logo.png" alt="Great Wall Furnitures" style="height: 70px; width: auto; margin-bottom: 20px;">
       </div>
     </section>
 
