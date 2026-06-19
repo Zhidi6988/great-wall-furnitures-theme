@@ -2584,6 +2584,11 @@ function setupProductDetails() {
   const detailContainer = document.getElementById("product-detail-container");
   if (!detailContainer || !product) return;
 
+  // Track recently viewed
+  if (typeof trackRecentlyViewed === 'function') {
+    trackRecentlyViewed(product.id);
+  }
+
   const saveAmt = product.originalPrice - product.price;
   const isSaved = typeof isProductSaved === 'function' ? isProductSaved(product.id) : false;
 
@@ -2687,6 +2692,12 @@ function setupProductDetails() {
       </div>
     </div>
 
+    <!-- Recently Viewed (Product Detail) -->
+    <div id="detail-recent-items-container" style="margin-top: 60px;">
+      <h3 style="font-size: 20px; border-bottom: 1px solid hsl(var(--color-border)); padding-bottom: 8px; margin-bottom: 20px;">Recently Viewed</h3>
+      <div class="product-grid" id="detail-recent-items"></div>
+    </div>
+
     <!-- Reviews Layout -->
     <div class="detail-bottom-grid">
       <!-- Reviews Column -->
@@ -2721,6 +2732,10 @@ function setupProductDetails() {
       </div>
     </div>
   `;
+
+  if (typeof renderRecentlyViewed === 'function') {
+    renderRecentlyViewed('detail-recent-items');
+  }
 }
 
 // Global UI Effects
@@ -3093,6 +3108,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof updateSavedItemsUI === 'function') {
       updateSavedItemsUI();
     }
+    
+    // Render recently viewed items in dashboard
+    if (typeof renderRecentlyViewed === 'function') {
+      renderRecentlyViewed('dashboard-recent-items');
+    }
   }
 });
 
@@ -3224,3 +3244,69 @@ window.updateSavedItemsUI = function() {
   }).join('');
 };
 
+// --- Recently Viewed Functions ---
+
+window.trackRecentlyViewed = function(productId) {
+  const activeUser = JSON.parse(localStorage.getItem('gw_auth_user') || 'null');
+  if (!activeUser) return; // Only track for logged-in users
+
+  if (!activeUser.recently_viewed) {
+    activeUser.recently_viewed = [];
+  }
+
+  // Remove if it already exists to prevent duplicates
+  activeUser.recently_viewed = activeUser.recently_viewed.filter(id => id !== productId);
+  
+  // Add to the beginning
+  activeUser.recently_viewed.unshift(productId);
+  
+  // Keep only the last 10
+  if (activeUser.recently_viewed.length > 10) {
+    activeUser.recently_viewed = activeUser.recently_viewed.slice(0, 10);
+  }
+
+  // Save to active session
+  localStorage.setItem('gw_auth_user', JSON.stringify(activeUser));
+
+  // Save to DB
+  let gwUsersDb = JSON.parse(localStorage.getItem('gw_users_db') || '{}');
+  if (gwUsersDb[activeUser.email]) {
+    gwUsersDb[activeUser.email] = activeUser;
+    localStorage.setItem('gw_users_db', JSON.stringify(gwUsersDb));
+  }
+};
+
+window.renderRecentlyViewed = function(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const activeUser = JSON.parse(localStorage.getItem('gw_auth_user') || 'null');
+  if (!activeUser || !activeUser.recently_viewed || activeUser.recently_viewed.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 40px 20px; background: white; border-radius: 12px;">
+        <i class="far fa-clock" style="font-size: 2.5rem; color: hsl(var(--color-border)); margin-bottom: 15px;"></i>
+        <h3 style="color: hsl(var(--color-text-dark)); margin-bottom: 10px;">No recently viewed items</h3>
+        <p style="color: hsl(var(--color-text-muted));">Products you browse will automatically appear here.</p>
+      </div>
+    `;
+    return;
+  }
+
+  if (typeof mockProducts === 'undefined') return;
+
+  const recentProducts = activeUser.recently_viewed.map(id => mockProducts.find(p => p.id === id)).filter(p => p);
+
+  container.innerHTML = recentProducts.map(product => {
+    return `
+      <div class="product-card" style="background: white;" onclick="viewProductDetail(${product.id})">
+        <div class="product-image" style="position: relative; padding: 20px; background: hsl(var(--color-bg-light)); cursor: pointer;">
+          ${product.image ? `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 180px; object-fit: contain; mix-blend-mode: multiply;">` : ''}
+        </div>
+        <div class="product-info" style="padding: 15px;">
+          <h3 class="product-title" style="font-family: var(--font-heading); font-size: 1rem; margin-bottom: 5px;">${product.name}</h3>
+          <div class="product-price" style="font-weight: bold; color: hsl(var(--color-primary)); font-size: 1.1rem;">AED ${product.price.toFixed(2)}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+};
