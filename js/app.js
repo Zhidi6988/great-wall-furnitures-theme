@@ -3116,6 +3116,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
 // --- Global Saved Items Functions ---
 
 window.isProductSaved = function(productId) {
@@ -3172,7 +3173,7 @@ window.toggleSaveProduct = function(event, productId) {
   const btn = event.currentTarget;
   if (btn) {
     const icon = btn.querySelector('i.fa-heart');
-    const isDetailBtn = btn.innerText.includes('Save');
+    const isDetailBtn = btn.innerText && btn.innerText.includes('Save');
     
     if (index === -1) {
       btn.classList.add('active');
@@ -3296,17 +3297,33 @@ window.renderRecentlyViewed = function(containerId) {
 
   const recentProducts = activeUser.recently_viewed.map(id => mockProducts.find(p => p.id === id)).filter(p => p);
 
-  container.innerHTML = recentProducts.map(product => {
-    return `
-      <div class="product-card" style="background: white;" onclick="viewProductDetail(${product.id})">
-        <div class="product-image" style="position: relative; padding: 20px; background: hsl(var(--color-bg-light)); cursor: pointer;">
-          ${product.image ? `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 180px; object-fit: contain; mix-blend-mode: multiply;">` : ''}
-        </div>
-        <div class="product-info" style="padding: 15px;">
-          <h3 class="product-title" style="font-family: var(--font-heading); font-size: 1rem; margin-bottom: 5px;">${product.name}</h3>
-          <div class="product-price" style="font-weight: bold; color: hsl(var(--color-primary)); font-size: 1.1rem;">AED ${product.price.toFixed(2)}</div>
-        </div>
+  container.classList.remove('product-grid');
+  
+  const sliderId = 'recent-slider-' + containerId;
+
+  container.innerHTML = `
+    <div style="position: relative; display: flex; align-items: center; margin: 0 -20px; padding: 0 20px;">
+      <button class="recent-scroll-btn prev" onclick="document.getElementById('${sliderId}').scrollBy({left: -300, behavior: 'smooth'})" style="position: absolute; left: 0px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; background: white; border: 1px solid hsl(var(--color-border)); box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; display: ${recentProducts.length > 3 ? 'flex' : 'none'}; align-items: center; justify-content: center;"><i class="fas fa-chevron-left"></i></button>
+      
+      <div id="${sliderId}" style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 0; width: 100%; scrollbar-width: none; -ms-overflow-style: none;">
+        ${recentProducts.map(product => `
+          <div class="product-card" style="background: white; min-width: 260px; max-width: 260px; flex: 0 0 auto; margin-bottom: 0;" onclick="viewProductDetail(${product.id})">
+            <div class="product-image" style="position: relative; padding: 20px; background: hsl(var(--color-bg-light)); cursor: pointer;">
+              ${product.image ? `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 180px; object-fit: contain; mix-blend-mode: multiply;">` : ''}
+            </div>
+            <div class="product-info" style="padding: 15px;">
+              <h3 class="product-title" style="font-family: var(--font-heading); font-size: 1rem; margin-bottom: 5px;">${product.name}</h3>
+              <div class="product-price" style="font-weight: bold; color: hsl(var(--color-primary)); font-size: 1.1rem;">AED ${product.price.toFixed(2)}</div>
+            </div>
+          </div>
+        `).join('')}
       </div>
-    `;
-  }).join('');
+
+      <button class="recent-scroll-btn next" onclick="document.getElementById('${sliderId}').scrollBy({left: 300, behavior: 'smooth'})" style="position: absolute; right: 0px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; background: white; border: 1px solid hsl(var(--color-border)); box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; display: ${recentProducts.length > 3 ? 'flex' : 'none'}; align-items: center; justify-content: center;"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <style>
+      #${sliderId}::-webkit-scrollbar { display: none; }
+      .recent-scroll-btn:hover { background: hsl(var(--color-bg-light)) !important; }
+    </style>
+  `;
 };
