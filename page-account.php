@@ -337,6 +337,13 @@
               </tbody>
             </table>
           </div>
+
+          <!-- Recently Viewed (Dashboard) -->
+          <div id="dashboard-recent-items-container" style="margin-top: 40px;">
+            <h2 style="font-size: 1.5rem; color: hsl(var(--color-text-dark)); margin-bottom: 20px;">Recently Viewed</h2>
+            <div class="product-grid" id="dashboard-recent-items"></div>
+          </div>
+
         </div>
 
         <!-- ORDERS & TRACKING TAB -->
