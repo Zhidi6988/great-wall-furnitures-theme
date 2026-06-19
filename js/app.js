@@ -1773,6 +1773,7 @@ function renderProducts(productsToRender, elementId) {
 
   container.innerHTML = productsToRender.map(product => {
     const isCompared = compareList.includes(product.id);
+    const isSaved = typeof isProductSaved === 'function' ? isProductSaved(product.id) : false;
     const saveAmt = product.originalPrice - product.price;
     const discountPercent = Math.round((saveAmt / product.originalPrice) * 100);
     
@@ -1784,6 +1785,12 @@ function renderProducts(productsToRender, elementId) {
             ${product.image ? `<img src="${product.image}" alt="${product.name}">` : generateProductSVG(product.name, product.category, product.iconColor)}
           </div>
         </div>
+        <button class="wishlist-btn ${isSaved ? 'active' : ''}" 
+                onclick="event.stopPropagation(); toggleSaveProduct(event, ${product.id})" 
+                title="Save for later" 
+                style="position: absolute; top: 12px; right: 48px; background: white; border: none; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); cursor: pointer; z-index: 10; color: ${isSaved ? 'hsl(var(--color-primary))' : 'hsl(var(--color-text-muted))'};">
+          <i class="${isSaved ? 'fas' : 'far'} fa-heart"></i>
+        </button>
         <button class="product-compare-checkbox ${isCompared ? 'active' : ''}" 
                 onclick="event.stopPropagation(); toggleCompare(${product.id})" 
                 title="Compare features">
@@ -2578,6 +2585,7 @@ function setupProductDetails() {
   if (!detailContainer || !product) return;
 
   const saveAmt = product.originalPrice - product.price;
+  const isSaved = typeof isProductSaved === 'function' ? isProductSaved(product.id) : false;
 
   detailContainer.innerHTML = `
     <div class="detail-grid">
@@ -2645,6 +2653,11 @@ function setupProductDetails() {
 
         <div style="display:flex; gap:16px; margin-bottom: 40px;">
           <button class="btn btn-primary" onclick="addToCart(${product.id})" style="flex-grow:1; padding: 16px 28px;">Add to Cart</button>
+          <button class="btn btn-secondary wishlist-btn ${isSaved ? 'active' : ''}" 
+                  onclick="toggleSaveProduct(event, ${product.id})" 
+                  style="padding: 16px 20px; color: ${isSaved ? 'hsl(var(--color-primary))' : 'inherit'};">
+            <i class="${isSaved ? 'fas' : 'far'} fa-heart" style="margin-right: 8px;"></i> Save
+          </button>
           <button class="btn btn-secondary" onclick="toggleCompare(${product.id})" style="padding: 16px 20px;">Compare</button>
         </div>
 
@@ -2837,12 +2850,16 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Simulate API call
       setTimeout(() => {
-        document.getElementById('review-verification-form').style.display = 'none';
-        document.getElementById('review-submission-form').style.display = 'block';
-      }, 1200);
+        verifyBtn.innerText = 'Verified! Redirecting...';
+        verifyBtn.style.opacity = '1';
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
+      }, 1500);
     });
   }
 });
+
 // --- Auth Portal Logic ---
 document.addEventListener('DOMContentLoaded', () => {
   const authState = localStorage.getItem('gw_auth_state');
@@ -3066,16 +3083,144 @@ document.addEventListener('DOMContentLoaded', () => {
     if (profileEmailDisplay) profileEmailDisplay.innerText = activeUser.email;
     if (profilePhoneDisplay) profilePhoneDisplay.innerText = activeUser.phone || 'No phone set';
     
-    const profileInitials = document.getElementById('profile-initials');
-    if (profileInitials) {
-      profileInitials.innerText = activeUser.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-    }
-    
     // Also change the header greeting
-    const welcomeHeader = document.getElementById('dashboard-welcome');
+    const welcomeHeader = document.querySelector('.dashboard-header h1');
     if (welcomeHeader) {
       welcomeHeader.innerText = "Welcome back, " + activeUser.name.split(' ')[0] + "!";
     }
+    
+    // Render saved items
+    if (typeof updateSavedItemsUI === 'function') {
+      updateSavedItemsUI();
+    }
   }
 });
+
+// --- Global Saved Items Functions ---
+
+window.isProductSaved = function(productId) {
+  const activeUser = JSON.parse(localStorage.getItem('gw_auth_user') || 'null');
+  if (!activeUser || !activeUser.saved_items) return false;
+  return activeUser.saved_items.includes(productId);
+};
+
+window.toggleSaveProduct = function(event, productId) {
+  event.preventDefault();
+  
+  const authState = localStorage.getItem('gw_auth_state');
+  
+  // If guest, intercept and show sign in portal
+  if (authState !== 'logged_in') {
+    const authPortal = document.getElementById('auth-portal-overlay');
+    const authTitle = document.getElementById('auth-title');
+    const authSubtitle = document.getElementById('auth-subtitle');
+    
+    // Switch to initial view
+    document.querySelectorAll('.auth-view').forEach(el => el.classList.remove('active'));
+    document.getElementById('auth-view-initial').classList.add('active');
+    
+    if (authTitle) authTitle.innerText = "Sign In to Save Items";
+    if (authSubtitle) authSubtitle.innerText = "Please sign in or create an account to save your favorite furniture.";
+    if (authPortal) authPortal.style.display = 'flex';
+    return;
+  }
+  
+  // Logged in user: Toggle save
+  let activeUser = JSON.parse(localStorage.getItem('gw_auth_user'));
+  if (!activeUser.saved_items) {
+    activeUser.saved_items = [];
+  }
+  
+  const index = activeUser.saved_items.indexOf(productId);
+  if (index === -1) {
+    activeUser.saved_items.push(productId);
+  } else {
+    activeUser.saved_items.splice(index, 1);
+  }
+  
+  // Save to active session
+  localStorage.setItem('gw_auth_user', JSON.stringify(activeUser));
+  
+  // Save to DB
+  let gwUsersDb = JSON.parse(localStorage.getItem('gw_users_db') || '{}');
+  if (gwUsersDb[activeUser.email]) {
+    gwUsersDb[activeUser.email] = activeUser;
+    localStorage.setItem('gw_users_db', JSON.stringify(gwUsersDb));
+  }
+  
+  // Update button visually
+  const btn = event.currentTarget;
+  if (btn) {
+    const icon = btn.querySelector('i.fa-heart');
+    const isDetailBtn = btn.innerText.includes('Save');
+    
+    if (index === -1) {
+      btn.classList.add('active');
+      btn.style.color = 'hsl(var(--color-primary))';
+      if (icon) {
+        icon.classList.remove('far');
+        icon.classList.add('fas');
+      } else {
+        btn.innerHTML = '<i class="fas fa-heart"></i>';
+      }
+    } else {
+      btn.classList.remove('active');
+      btn.style.color = isDetailBtn ? 'inherit' : 'hsl(var(--color-text-muted))';
+      if (icon) {
+        icon.classList.remove('fas');
+        icon.classList.add('far');
+      } else {
+        btn.innerHTML = '<i class="far fa-heart"></i>';
+      }
+    }
+  }
+  if (typeof updateSavedItemsUI === 'function') {
+    updateSavedItemsUI();
+  }
+};
+
+window.updateSavedItemsUI = function() {
+  const container = document.getElementById('saved-items-grid');
+  if (!container) return;
+  
+  const activeUser = JSON.parse(localStorage.getItem('gw_auth_user') || 'null');
+  if (!activeUser || !activeUser.saved_items || activeUser.saved_items.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: white; border-radius: 12px;">
+        <i class="far fa-heart" style="font-size: 3rem; color: hsl(var(--color-border)); margin-bottom: 20px;"></i>
+        <h3 style="color: hsl(var(--color-text-dark)); margin-bottom: 10px;">No saved items yet</h3>
+        <p style="color: hsl(var(--color-text-muted)); margin-bottom: 20px;">Browse our catalog and tap the heart icon to save items here.</p>
+        <a href="index.html" class="btn btn-primary">Browse Catalog</a>
+      </div>
+    `;
+    return;
+  }
+  
+  if (typeof mockProducts === 'undefined') return; // Make sure products array is available
+  
+  const savedProducts = mockProducts.filter(p => activeUser.saved_items.includes(p.id));
+  
+  container.innerHTML = savedProducts.map(product => {
+    return `
+      <div class="product-card" style="background: white;" data-id="${product.id}">
+        <div class="product-image" style="position: relative; padding: 20px; background: hsl(var(--color-bg-light));">
+          ${product.image ? `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 200px; object-fit: contain; mix-blend-mode: multiply;">` : ''}
+          ${product.badge ? `<span class="product-badge" style="position: absolute; top: 10px; left: 10px; background: hsl(var(--color-primary)); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">${product.badge}</span>` : ''}
+          
+          <button class="wishlist-btn active" 
+                  onclick="event.stopPropagation(); toggleSaveProduct(event, ${product.id})" 
+                  title="Remove from saved" 
+                  style="position: absolute; top: 12px; right: 12px; background: white; border: none; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); cursor: pointer; z-index: 10; color: hsl(var(--color-primary));">
+            <i class="fas fa-heart"></i>
+          </button>
+        </div>
+        <div class="product-info" style="padding: 20px;">
+          <h3 class="product-title" style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 8px;">${product.name}</h3>
+          <div class="product-price" style="font-weight: bold; color: hsl(var(--color-primary)); font-size: 1.2rem;">AED ${product.price.toFixed(2)}</div>
+          <button class="btn btn-primary" onclick="window.location.href='page-product-detail.html'" style="width: 100%; margin-top: 12px;"><i class="fas fa-cart-plus" style="margin-right: 8px;"></i> View Details</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+};
 
