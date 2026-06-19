@@ -433,31 +433,8 @@
           <h1 style="font-size: 2rem; color: hsl(var(--color-text-dark)); margin-bottom: 8px;">Saved Items</h1>
           <p style="color: hsl(var(--color-text-muted)); margin-bottom: 30px;">Products you've favorited for future wholesale orders.</p>
 
-          <div class="product-grid">
-            <!-- Saved Product 1 -->
-            <div class="product-card" style="background: white;">
-              <div class="product-image">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/prod_metro_chair_1780643241235.png" alt="Ergonomic Chair">
-                <span class="product-badge">Best Seller</span>
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">ErgoPro Mesh Office Chair</h3>
-                <div class="product-price">AED 349.00</div>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 12px;"><i class="fas fa-cart-plus" style="margin-right: 8px;"></i> Add to Cart</button>
-              </div>
-            </div>
-
-            <!-- Saved Product 2 -->
-            <div class="product-card" style="background: white;">
-              <div class="product-image">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/prod_horizon_desk_1780643228396.png" alt="Executive Desk">
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">Executive L-Shape Desk</h3>
-                <div class="product-price">AED 899.00</div>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 12px;"><i class="fas fa-cart-plus" style="margin-right: 8px;"></i> Add to Cart</button>
-              </div>
-            </div>
+          <div class="product-grid" id="saved-items-grid">
+            <!-- Dynamically populated by auth.js -->
           </div>
         </div>
 
